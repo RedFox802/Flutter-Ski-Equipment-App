@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "296609591245",
+    "project_id": "ski-equipment-rental-631ad",
+    "storage_bucket": "ski-equipment-rental-631ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296609591245:android:4b387be7dd5234d0d81e84",
+        "android_client_info": {
+          "package_name": "com.example.equipment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "296609591245-0adb52ahfplsdbq0iluaaho83lvhiua3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS-APkq1zGS1237oT1Hw1jt3t2Ig77zqM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "296609591245-0adb52ahfplsdbq0iluaaho83lvhiua3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
