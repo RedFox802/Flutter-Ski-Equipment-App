@@ -34,17 +34,16 @@ class _LoginScreenState extends State<LoginScreen> {
               Align(
                 alignment: const AlignmentDirectional(0, 1),
                 child: Container(
-                  height: MediaQuery.of(context).size.height / 2.4,
-                  decoration: const BoxDecoration(
+                  height: MediaQuery.of(context).size.height / 2.h,
+                  decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(20.r),
+                      topRight: Radius.circular(20.r),
                     ),
                   ),
                   child: Padding(
-                    padding:
-                    EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                    padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
@@ -70,16 +69,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: InputDecoration(
                               hintText: '+7(',
                               border: AppInputBorders.telephoneInputBorder,
-                              disabledBorder:
-                              AppInputBorders.telephoneInputBorder,
-                              enabledBorder:
-                              AppInputBorders.telephoneInputBorder,
-                              focusedBorder:
-                              AppInputBorders.telephoneInputBorder,
-                              errorBorder:
-                              AppInputBorders.telephoneErrorInputBorder,
-                              focusedErrorBorder:
-                              AppInputBorders.telephoneErrorInputBorder,
+                              disabledBorder: AppInputBorders.telephoneInputBorder,
+                              enabledBorder: AppInputBorders.telephoneInputBorder,
+                              focusedBorder: AppInputBorders.telephoneInputBorder,
+                              errorBorder: AppInputBorders.telephoneErrorInputBorder,
+                              focusedErrorBorder: AppInputBorders.telephoneErrorInputBorder,
                               filled: true,
                               fillColor: Colors.grey.shade50,
                             ),
@@ -102,8 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: ((_) =>
-                                        AuthenticationScreen(
+                                    builder: ((_) => AuthenticationScreen(
                                           phone: _formKey.currentState!
                                               .value['phone_field'],
                                         )),
