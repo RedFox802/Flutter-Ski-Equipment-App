@@ -28,6 +28,8 @@ dependencies:
   json_serializable: ^6.2.0
   json_annotation: ^4.5.0
   fluttertoast: ^8.0.9
+  shared_preferences: ^2.0.15
+  easy_autocomplete: ^1.5.0
 
 dev_dependencies:
   flutter_test:
