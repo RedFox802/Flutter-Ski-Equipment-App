@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../catalog_page/presentation/screens/catalog_screen.dart';
+import '../../../profile_page/presentation/screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     CatalogScreen(),
     Text('Index 1: Business'),
-    Text('Index 2: School')
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
