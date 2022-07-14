@@ -25,8 +25,10 @@ class AuthenticationScreen extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (BuildContext context, state) {
         if (state.auth) {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (_) => const HomeScreen()));
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (_) => const HomeScreen()),
+              (_) => false);
         }
         if (state.error) {
           Fluttertoast.showToast(
@@ -36,7 +38,7 @@ class AuthenticationScreen extends StatelessWidget {
               timeInSecForIosWeb: 1,
               backgroundColor: Colors.red,
               textColor: Colors.white,
-              fontSize: 16.0);
+              fontSize: 16.sp);
         }
       },
       builder: (BuildContext context, AuthState state) {
@@ -53,7 +55,8 @@ class AuthenticationScreen extends StatelessWidget {
                 Text(
                   'На номер $phone\nбыл отправилен СМС-код,\nвведите его ниже',
                   textAlign: TextAlign.center,
-                  style: AppTextStyle.nunitoW600S16.copyWith(color: Colors.grey.shade800),
+                  style: AppTextStyle.nunitoW600S16
+                      .copyWith(color: Colors.grey.shade800),
                 ),
                 const Spacer(),
                 Padding(

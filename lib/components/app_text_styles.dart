@@ -16,6 +16,13 @@ class AppTextStyle {
     color: Colors.grey.shade800,
   );
 
+  static final TextStyle nunitoW600S12 = TextStyle(
+    fontSize: 12.sp,
+    fontFamily: 'Nunito',
+    fontWeight: FontWeight.w600,
+    color: Colors.grey.shade800,
+  );
+
   static final TextStyle nunitoW600S16 = TextStyle(
     fontSize: 16.sp,
     fontFamily: 'Nunito',

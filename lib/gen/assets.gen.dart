@@ -20,6 +20,9 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/im_ski.png
+  AssetGenImage get imSki => const AssetGenImage('assets/images/im_ski.png');
+
   /// File path: assets/images/mountains.jpg
   AssetGenImage get mountains =>
       const AssetGenImage('assets/images/mountains.jpg');
