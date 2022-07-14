@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
+import '../../../../components/app_blue_button.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../domain/login_state.dart';
 
@@ -105,47 +106,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              height: 50.h,
-                              child: ElevatedButton(
-                                onPressed: () async {
-                                  if (_textEditingController.text !=
-                                      state.phone) {
-                                    context
-                                        .read<LoginCubit>()
-                                        .savePhone(_textEditingController.text);
-                                  }
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: ((_) => AuthenticationScreen(
-                                            phone: _textEditingController.text,
-                                          )),
-                                    ),
-                                  );
-                                },
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all<Color>(
-                                          Colors.blue.shade300),
-                                  elevation:
-                                      MaterialStateProperty.all<double>(10),
-                                  shape:
-                                      MaterialStateProperty.all<OutlinedBorder>(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(8.r),
-                                      ),
-                                    ),
+                            AppBlueButton(
+                              text: 'Получить смс код',
+                              onPressed: () async {
+                                if (_textEditingController.text !=
+                                    state.phone) {
+                                  context
+                                      .read<LoginCubit>()
+                                      .savePhone(_textEditingController.text);
+                                }
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: ((_) => AuthenticationScreen(
+                                          phone: _textEditingController.text,
+                                        )),
                                   ),
-                                ),
-                                child: Text(
-                                  "Получить смс код",
-                                  style: AppTextStyle.nunitoW600S16
-                                      .copyWith(color: Colors.grey.shade800),
-                                ),
-                              ),
-                            )
+                                );
+                              },
+                            ),
                           ],
                         ),
                       ),

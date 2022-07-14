@@ -28,6 +28,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
     return PreferredSize(
       preferredSize: Size.fromHeight(120.h),
       child: AppBar(
+        elevation: 0,
         title: Text(
           titleText ?? '',
           style: AppTextStyle.nunitoW700S16,

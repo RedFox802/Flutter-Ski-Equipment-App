@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../components/app_text_styles.dart';
+import '../../../support_connection_page/presentation/screens/support_connection_screen.dart';
 import '../components/app_profile_button.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -52,7 +53,14 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(height: 8.h),
             AppProfileButton(
               icon: Icons.info_outline,
-              onTup: () {},
+              onTup: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((_) => const SupportConnectionScreen()),
+                  ),
+                );
+              },
               isUp: true,
               text: 'Связаться с поддержкой',
             ),
