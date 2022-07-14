@@ -31,7 +31,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
         elevation: 0,
         title: Text(
           titleText ?? '',
-          style: AppTextStyle.nunitoW700S16,
+          style: AppTextStyle.nunitoW700S18,
         ),
         centerTitle: centreTitle,
         leading: canPop
