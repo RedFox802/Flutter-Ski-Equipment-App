@@ -1,6 +1,7 @@
 import 'package:equipment/features/authentication_page/domain/auth_cubit.dart';
 import 'package:equipment/features/authentication_page/domain/state/auth_state.dart';
 import 'package:equipment/features/home_page/presentation/screens/home_screen.dart';
+import 'package:equipment/features/login_page/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,6 +40,11 @@ class AuthenticationScreen extends StatelessWidget {
               backgroundColor: Colors.red,
               textColor: Colors.white,
               fontSize: 16.sp);
+
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (_) => const LoginScreen()),
+                  (_) => false);
         }
       },
       builder: (BuildContext context, AuthState state) {

@@ -2,6 +2,7 @@ import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../components/rental_container.dart';
 
 class CatalogScreen extends StatelessWidget {
@@ -31,8 +32,7 @@ class CatalogScreen extends StatelessWidget {
                     Text(
                       'Лучшие прокаты',
                       style: AppTextStyle.nunitoW700S16,
-                    ),
-                    const Icon(Icons.settings),
+                    ), Assets.icons.iconSett.svg(height: 26.h),
                   ],
                 ),
               ),

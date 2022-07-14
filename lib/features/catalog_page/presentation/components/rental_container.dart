@@ -48,7 +48,7 @@ class RentalContainer extends StatelessWidget {
                   height: 28.h,
                   width: 52.w,
                   decoration: BoxDecoration(
-                    color: Colors.yellow,
+                    color: Colors.yellow.shade600,
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Row(
@@ -56,16 +56,13 @@ class RentalContainer extends StatelessWidget {
                     children: [
                       Padding(
                         padding: EdgeInsets.only(left: 4.w),
-                        child: const Icon(
-                          Icons.star_border,
-                          size: 20,
-                        ),
+                        child: Assets.icons.iconStar.svg(height: 16.h,width: 16.h,color: Colors.white),
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 4.w),
                         child: Text(
                           '4.7',
-                          style: AppTextStyle.nunitoW600S12,
+                          style: AppTextStyle.nunitoW600S12.copyWith(color: Colors.white),
                         ),
                       ),
                     ],
