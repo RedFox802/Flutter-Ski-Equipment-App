@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../components/default_app_bar.dart';
+import '../../../questionnaire_adding_page/presentation/screens/questionnaire_adding_screen.dart';
 import '../components/questionnaire_container.dart';
 
 class QuestionnaireScreen extends StatelessWidget {
@@ -20,7 +21,14 @@ class QuestionnaireScreen extends StatelessWidget {
             color: Colors.blueAccent,
             size: 26.h,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: ((_) => const QuestionnaireAddingScreen()),
+              ),
+            );
+          },
         ),
       ),
       body: ListView(
