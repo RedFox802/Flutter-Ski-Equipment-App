@@ -3,13 +3,13 @@ import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class QuestionnaireField extends StatelessWidget {
+class AppTextField extends StatelessWidget {
   final String text;
   final String hint;
   final IconData icon;
   final TextEditingController controller;
 
-  const QuestionnaireField({
+  const AppTextField({
     Key? key,
     required this.text,
     required this.hint,

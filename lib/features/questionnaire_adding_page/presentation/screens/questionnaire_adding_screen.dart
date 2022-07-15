@@ -4,7 +4,8 @@ import 'package:equipment/components/default_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../components/questionnaire_field.dart';
+import '../../../../components/app_buttons_row.dart';
+import '../../../../components/app_text_field.dart';
 
 class QuestionnaireAddingScreen extends StatelessWidget {
   const QuestionnaireAddingScreen({Key? key}) : super(key: key);
@@ -28,60 +29,22 @@ class QuestionnaireAddingScreen extends StatelessWidget {
               style: AppTextStyle.nunitoW700S18,
             ),
             SizedBox(height: 10.h),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.r),
-                color: Colors.grey.shade50,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
-                      color: Colors.blue.shade400,
-                    ),
-                    height: 60,
-                    width: MediaQuery.of(context).size.width / 2 - 20.w,
-                    child: Center(
-                      child: GestureDetector(
-                        child: Text(
-                          'Опытный',
-                          style: AppTextStyle.nunitoW600S14
-                              .copyWith(color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
-                    ),
-                    height: 60,
-                    width: MediaQuery.of(context).size.width / 2 - 20.w,
-                    child: Center(
-                      child: GestureDetector(
-                        child: Text(
-                          'Новичок',
-                          style: AppTextStyle.nunitoW600S14
-                              .copyWith(color: Colors.grey.shade500),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            AppButtonsRow(
+              firstText: 'Опытный',
+              secondText: 'Новичок',
+              firstOnTap: () {},
+              secondOnTap: () {},
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
-              child: QuestionnaireField(
+              child: AppTextField(
                 icon: Icons.person_sharp,
                 text: 'Имя',
                 controller: nameController,
                 hint: 'Введите ваше имя',
               ),
             ),
-            QuestionnaireField(
+            AppTextField(
               icon: Icons.arrow_upward,
               text: 'Рост',
               controller: heightController,
@@ -89,14 +52,14 @@ class QuestionnaireAddingScreen extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
-              child: QuestionnaireField(
+              child: AppTextField(
                 icon: Icons.person_outline_outlined,
                 text: 'Вес',
                 controller: weightController,
                 hint: 'Введите ваш вес',
               ),
             ),
-            QuestionnaireField(
+            AppTextField(
               icon: Icons.ac_unit_outlined,
               text: 'Размер обуви',
               controller: shoesController,

@@ -2,7 +2,9 @@ import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../components/rating_container.dart';
 import '../../../../gen/assets.gen.dart';
+import '../../../rental_page/presentation/screens/rental_screen.dart';
 
 class RentalContainer extends StatelessWidget {
   const RentalContainer({Key? key}) : super(key: key);
@@ -14,6 +16,14 @@ class RentalContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
       child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: ((_) => const RentalScreen()),
+            ),
+          );
+        },
         child: Container(
           width: width,
           height: height,
@@ -36,7 +46,8 @@ class RentalContainer extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
                   child: Align(
                       alignment: const Alignment(0, 1),
                       child: Text('Название проката',
@@ -45,30 +56,7 @@ class RentalContainer extends StatelessWidget {
                 Positioned(
                   top: height * 0.48,
                   right: 22.w,
-                  child: Container(
-                    height: 28.h,
-                    width: 52.w,
-                    decoration: BoxDecoration(
-                      color: Colors.yellow.shade600,
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(left: 4.w),
-                          child: Assets.icons.iconStar.svg(height: 16.h,width: 16.h,color: Colors.white),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(right: 4.w),
-                          child: Text(
-                            '4.7',
-                            style: AppTextStyle.nunitoW600S12.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  child: const RatingContainer(rating: 4.7,),
                 ),
               ],
             ),
