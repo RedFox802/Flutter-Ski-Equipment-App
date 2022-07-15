@@ -2,7 +2,7 @@ import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../equipment_page/presentation/screens/equipment_screen.dart';
+import '../../../booking_page/presentation/screens/booking_screen.dart';
 
 class CoastContainer extends StatelessWidget {
   const CoastContainer({
@@ -37,7 +37,7 @@ class CoastContainer extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: ((_) => const EquipmentScreen()),
+                          builder: ((_) => const BookingScreen()),
                         ),
                       );
                     },
