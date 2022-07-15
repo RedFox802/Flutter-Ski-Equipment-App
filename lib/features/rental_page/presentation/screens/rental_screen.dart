@@ -19,10 +19,7 @@ class RentalScreen extends StatelessWidget {
             child: Stack(
               children: [
                 SizedBox(
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height / 3,
+                  height: MediaQuery.of(context).size.height / 3,
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(20.r),
@@ -34,7 +31,7 @@ class RentalScreen extends StatelessWidget {
                 SafeArea(
                   child: Padding(
                     padding:
-                    EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -137,51 +134,62 @@ class RentalScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text('Товары', style: AppTextStyle.nunitoW700S14,),
-                          SizedBox(width: 8.w,),
-                          Text('9', style: AppTextStyle.nunitoW600S14.copyWith(
-                              color: Colors.grey.shade500)),
+                          Text(
+                            'Товары',
+                            style: AppTextStyle.nunitoW700S14,
+                          ),
+                          SizedBox(
+                            width: 8.w,
+                          ),
+                          Text('9',
+                              style: AppTextStyle.nunitoW600S14
+                                  .copyWith(color: Colors.grey.shade500)),
                         ],
                       ),
                       GestureDetector(
-                        child: Text(
-                            'Все товары',
-                            style: AppTextStyle.nunitoW600S14.copyWith(
-                                color: Colors.blueAccent)
-                        ),
+                        child: Text('Все товары',
+                            style: AppTextStyle.nunitoW600S14
+                                .copyWith(color: Colors.blueAccent)),
                       )
                     ],
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     ProductContainer(
                       oneDay: 4000,
                       twoDay: 5900,
                       name: 'Горные лыжи',
                       threeDay: 6400,
-                      fourDay: 12000,),
+                      fourDay: 12000,
+
+                    ),
                     ProductContainer(
                       oneDay: 5000,
                       twoDay: 8700,
                       name: 'Сноуборд',
                       threeDay: 9560,
-                      fourDay: 11340,),
+                      fourDay: 11340,
+
+                    ),
                   ],
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10.h),
-                  child: Text('Описание', style: AppTextStyle.nunitoW700S14, ),
+                  child: Text(
+                    'Описание',
+                    style: AppTextStyle.nunitoW700S14,
+                  ),
                 ),
                 Text(
                   'Крепкий удобный шлем и подобное лалала удобный шлем и подобное лалала',
                   style: AppTextStyle.nunitoW600S14,
-                  maxLines: 4,)
+                  maxLines: 4,
+                )
               ],
             ),
           ),
-
         ],
       ),
     );

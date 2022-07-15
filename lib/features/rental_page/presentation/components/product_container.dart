@@ -2,6 +2,8 @@ import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../equipment_page/presentation/screens/equipment_screen.dart';
+
 class ProductContainer extends StatelessWidget {
   final String name;
   final int oneDay;
@@ -46,14 +48,24 @@ class ProductContainer extends StatelessWidget {
                     name,
                     style: AppTextStyle.nunitoW600S12,
                   ),
-                  const Icon(
-                    Icons.arrow_forward,
-                    color: Colors.blueAccent,
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((_) => const EquipmentScreen()),
+                        ),
+                      );
+                    },
+                    child: const Icon(
+                      Icons.arrow_forward,
+                      color: Colors.blueAccent,
+                    ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 4.h),
+                padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -96,7 +108,9 @@ class ProductContainer extends StatelessWidget {
                             '$twoDay ₽',
                             style: AppTextStyle.nunitoW600S12,
                           ),
-                          SizedBox(height: 6.h,),
+                          SizedBox(
+                            height: 6.h,
+                          ),
                           if (fourDay != null)
                             Text(
                               '4 день',
