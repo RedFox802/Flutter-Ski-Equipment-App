@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../catalog_page/presentation/screens/catalog_screen.dart';
+import '../../../orders_page/presentation/screens/orders_screen.dart';
 import '../../../profile_page/presentation/screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     CatalogScreen(),
-    Text('Index 1: Business'),
+    OrdersScreen(),
     ProfileScreen(),
   ];
 
