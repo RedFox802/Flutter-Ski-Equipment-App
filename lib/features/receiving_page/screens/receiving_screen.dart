@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../components/app_text_field.dart';
+import '../../review_page/presentation/screens/review_screen.dart';
 import '../domain/receiving_cubit.dart';
 import '../domain/state/receiving_state.dart';
 
@@ -88,8 +89,15 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                   ),
                   SizedBox(height: 90.h),
                   AppBlueButton(
-                    onPressed: () {},
                     text: 'Забронировать',
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: ((_) => const ReviewScreen()),
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(height: 10.h),
                 ],
