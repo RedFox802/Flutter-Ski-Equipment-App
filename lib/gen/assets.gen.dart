@@ -18,6 +18,9 @@ class $AssetsIconsGen {
   AssetGenImage get icGeneral =>
       const AssetGenImage('assets/icons/ic_general.webp');
 
+  /// File path: assets/icons/ic_ok.svg
+  SvgGenImage get icOk => const SvgGenImage('assets/icons/ic_ok.svg');
+
   /// File path: assets/icons/icon_sett.svg
   SvgGenImage get iconSett => const SvgGenImage('assets/icons/icon_sett.svg');
 

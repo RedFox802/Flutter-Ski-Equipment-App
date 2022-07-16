@@ -8,6 +8,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
   final String? titleText;
   final Widget action;
   final Color? backgroundColor;
+  final bool leading;
 
   @override
   final Size preferredSize = const Size.fromHeight(60);
@@ -18,6 +19,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
     this.titleText,
     this.backgroundColor,
     this.action = const SizedBox.shrink(),
+    this.leading = true,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,7 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
           style: AppTextStyle.nunitoW700S18,
         ),
         centerTitle: centreTitle,
-        leading: canPop
+        leading: canPop && leading
             ? IconButton(
                 onPressed: () {
                   Navigator.pop(context);

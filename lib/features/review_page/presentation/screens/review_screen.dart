@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:equipment/components/app_blue_button.dart';
 import 'package:equipment/components/app_text_styles.dart';
+import 'package:equipment/features/home_page/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -72,7 +73,14 @@ class _ReviewScreenState extends State<ReviewScreen> {
               const Spacer(),
               AppBlueButton(
                 text: 'Оставить отзыв',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((_) => const HomeScreen()),
+                    ),
+                  );
+                },
               ),
             ],
           ),

@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../components/app_text_field.dart';
-import '../../review_page/presentation/screens/review_screen.dart';
+import '../../boking_result_page/presentation/screens/booking_result_screen.dart';
 import '../domain/receiving_cubit.dart';
 import '../domain/state/receiving_state.dart';
 
@@ -94,7 +94,7 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: ((_) => const ReviewScreen()),
+                          builder: ((_) => const BookingResultScreen()),
                         ),
                       );
                     },
