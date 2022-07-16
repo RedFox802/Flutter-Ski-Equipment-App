@@ -6,15 +6,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class AppTextField extends StatelessWidget {
   final String text;
   final String hint;
-  final IconData icon;
+  final String? buttonText;
+  final void Function()? onTap;
+  final IconData? icon;
   final TextEditingController controller;
 
   const AppTextField({
     Key? key,
     required this.text,
     required this.hint,
-    required this.icon,
+    this.icon,
     required this.controller,
+    this.buttonText,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -24,7 +28,22 @@ class AppTextField extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(vertical: 6.h),
-          child: Text(text, style: AppTextStyle.nunitoW600S14),
+          child: buttonText == null
+              ? Text(text, style: AppTextStyle.nunitoW600S14)
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(text, style: AppTextStyle.nunitoW600S14),
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Text(
+                        buttonText!,
+                        style: AppTextStyle.nunitoW600S14
+                            .copyWith(color: Colors.blueAccent),
+                      ),
+                    )
+                  ],
+                ),
         ),
         TextFormField(
           controller: controller,
@@ -40,10 +59,12 @@ class AppTextField extends StatelessWidget {
               enabledBorder: AppInputBorders.supportInputBorder,
               focusedBorder: AppInputBorders.supportInputBorder,
               focusedErrorBorder: AppInputBorders.supportInputBorder,
-              suffixIcon: Icon(
-                icon,
-                size: 30,
-              )),
+              suffixIcon: icon != null
+                  ? Icon(
+                      icon,
+                      size: 30,
+                    )
+                  : null),
         )
       ],
     );

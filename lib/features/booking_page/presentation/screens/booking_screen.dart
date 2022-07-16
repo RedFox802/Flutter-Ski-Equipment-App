@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../components/app_blue_button.dart';
+import '../../../receiving_page/screens/receiving_screen.dart';
 import '../components/questionnaire_container.dart';
 
 class BookingScreen extends StatelessWidget {
@@ -96,7 +97,14 @@ class BookingScreen extends StatelessWidget {
             ),
             AppBlueButton(
               text: 'Продолжить',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((_) => const ReceivingScreen()),
+                  ),
+                );
+              },
             ),
           ],
         ),
