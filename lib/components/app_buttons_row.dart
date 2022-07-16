@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'app_text_styles.dart';
 
-class AppButtonsRow extends StatelessWidget {
+class AppButtonsRow extends StatefulWidget {
+  final bool isFirstButton;
   final String firstText;
   final String secondText;
   final void Function() firstOnTap;
@@ -15,8 +16,14 @@ class AppButtonsRow extends StatelessWidget {
     required this.secondText,
     required this.firstOnTap,
     required this.secondOnTap,
+    required this.isFirstButton,
   }) : super(key: key);
 
+  @override
+  State<AppButtonsRow> createState() => _AppButtonsRowState();
+}
+
+class _AppButtonsRowState extends State<AppButtonsRow> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,33 +37,42 @@ class AppButtonsRow extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              color: Colors.blue.shade400,
+              color: widget.isFirstButton
+                  ? Colors.blue.shade400
+                  : Colors.grey.shade50,
             ),
-            height: 60,
+            height: 60.h,
             width: MediaQuery.of(context).size.width / 2 - 20.w,
             child: Center(
               child: GestureDetector(
-                onTap: firstOnTap,
+                onTap: widget.firstOnTap,
                 child: Text(
-                  firstText,
-                  style:
-                      AppTextStyle.nunitoW600S14.copyWith(color: Colors.white),
+                  widget.firstText,
+                  style: widget.isFirstButton
+                      ? AppTextStyle.nunitoW600S14.copyWith(color: Colors.white)
+                      : AppTextStyle.nunitoW600S14
+                          .copyWith(color: Colors.grey.shade500),
                 ),
               ),
             ),
           ),
           Container(
             decoration: BoxDecoration(
+              color: !widget.isFirstButton
+                  ? Colors.blue.shade400
+                  : Colors.grey.shade50,
               borderRadius: BorderRadius.circular(10.r),
             ),
             height: 60,
             width: MediaQuery.of(context).size.width / 2 - 20.w,
             child: Center(
               child: GestureDetector(
-                onTap: secondOnTap,
+                onTap: widget.secondOnTap,
                 child: Text(
-                  secondText,
-                  style: AppTextStyle.nunitoW600S14
+                  widget.secondText,
+                  style: !widget.isFirstButton
+                      ? AppTextStyle.nunitoW600S14.copyWith(color: Colors.white)
+                      : AppTextStyle.nunitoW600S14
                       .copyWith(color: Colors.grey.shade500),
                 ),
               ),

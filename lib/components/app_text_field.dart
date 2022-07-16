@@ -5,20 +5,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTextField extends StatelessWidget {
   final String text;
-  final String hint;
+  final String? hint;
   final String? buttonText;
   final void Function()? onTap;
   final IconData? icon;
+  final bool readOnly;
   final TextEditingController controller;
 
   const AppTextField({
     Key? key,
     required this.text,
-    required this.hint,
+    this.hint,
     this.icon,
     required this.controller,
     this.buttonText,
     this.onTap,
+    this.readOnly = false,
   }) : super(key: key);
 
   @override
@@ -46,6 +48,7 @@ class AppTextField extends StatelessWidget {
                 ),
         ),
         TextFormField(
+          readOnly: readOnly,
           controller: controller,
           decoration: InputDecoration(
               hintText: hint,

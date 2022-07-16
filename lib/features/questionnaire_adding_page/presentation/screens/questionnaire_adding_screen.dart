@@ -33,7 +33,7 @@ class QuestionnaireAddingScreen extends StatelessWidget {
               firstText: 'Опытный',
               secondText: 'Новичок',
               firstOnTap: () {},
-              secondOnTap: () {},
+              secondOnTap: () {}, isFirstButton: true,
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
