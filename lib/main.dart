@@ -1,5 +1,5 @@
 import 'package:equipment/features/authentication_page/domain/auth_cubit.dart';
-import 'package:equipment/features/login_page/presentation/screens/login_screen.dart';
+import 'package:equipment/features/home_page/presentation/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             home: child,
           );
         },
-        child: const LoginScreen(),
+        child: const HomeScreen(),
       ),
     );
   }

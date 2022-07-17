@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../components/rating_container.dart';
 import '../../../../gen/assets.gen.dart';
+import '../../../products_page/presentation/screens/products_screen.dart';
 import '../components/product_container.dart';
 
 class RentalScreen extends StatelessWidget {
@@ -147,6 +148,14 @@ class RentalScreen extends StatelessWidget {
                         ],
                       ),
                       GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((_) => const ProductsScreen()),
+                            ),
+                          );
+                        },
                         child: Text('Все товары',
                             style: AppTextStyle.nunitoW600S14
                                 .copyWith(color: Colors.blueAccent)),
@@ -163,7 +172,6 @@ class RentalScreen extends StatelessWidget {
                       name: 'Горные лыжи',
                       threeDay: 6400,
                       fourDay: 12000,
-
                     ),
                     ProductContainer(
                       oneDay: 5000,
@@ -171,7 +179,6 @@ class RentalScreen extends StatelessWidget {
                       name: 'Сноуборд',
                       threeDay: 9560,
                       fourDay: 11340,
-
                     ),
                   ],
                 ),
