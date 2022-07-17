@@ -34,8 +34,9 @@ class SupportConnectionScreen extends StatelessWidget {
                 fillColor: Colors.blueGrey.shade50,
                 filled: true,
                 hintText: 'Введите свой вопрос',
-                hintStyle: AppTextStyle.nunitoW600S14.copyWith(color: Colors.grey.shade500),
-                border:AppInputBorders.supportInputBorder,
+                hintStyle: AppTextStyle.nunitoW600S14
+                    .copyWith(color: Colors.grey.shade500),
+                border: AppInputBorders.supportInputBorder,
                 enabledBorder: AppInputBorders.supportInputBorder,
                 errorBorder: AppInputBorders.supportInputBorder,
                 disabledBorder: AppInputBorders.supportInputBorder,
@@ -45,10 +46,7 @@ class SupportConnectionScreen extends StatelessWidget {
               maxLines: 8,
             ),
             const Spacer(),
-            AppBlueButton(
-              text: 'Отправить',
-              onPressed: (){}
-            ),
+            AppBlueButton(text: 'Отправить', onPressed: () {}),
             SizedBox(height: 10.h),
           ],
         ),

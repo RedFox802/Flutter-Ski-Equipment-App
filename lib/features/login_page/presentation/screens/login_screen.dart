@@ -32,13 +32,14 @@ class _LoginScreenState extends State<LoginScreen> {
           listener: (BuildContext context, LoginState state) {
             if (state.error) {
               Fluttertoast.showToast(
-                  msg: "Ошибка автодополнения!",
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.CENTER,
-                  timeInSecForIosWeb: 1,
-                  backgroundColor: Colors.red,
-                  textColor: Colors.white,
-                  fontSize: 16.sp);
+                msg: "Ошибка автодополнения!",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.CENTER,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 16.sp,
+              );
             }
           },
           builder: (BuildContext context, state) {
@@ -61,8 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 20.w, vertical: 20.h),
+                        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [

@@ -41,9 +41,8 @@ class EquipmentScreen extends StatelessWidget {
               child: GestureDetector(
                 child: Text(
                   'Читать далее',
-                  style: AppTextStyle.nunitoW600S14.copyWith(
-                    color: Colors.blueAccent,
-                  ),
+                  style: AppTextStyle.nunitoW600S14
+                      .copyWith(color: Colors.blueAccent),
                 ),
               ),
             ),
@@ -59,17 +58,21 @@ class EquipmentScreen extends StatelessWidget {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20.r),
-                    child:Assets.images.imSki.image(),
+                    child: Assets.images.imSki.image(),
                   ),
-                  SizedBox(width: 8.w,),
+                  SizedBox(
+                    width: 8.w,
+                  ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20.r),
-                    child:Assets.images.imSki.image(),
+                    child: Assets.images.imSki.image(),
                   ),
-                  SizedBox(width: 8.w,),
+                  SizedBox(
+                    width: 8.w,
+                  ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20.r),
-                    child:Assets.images.imSki.image(),
+                    child: Assets.images.imSki.image(),
                   ),
                 ],
               ),
@@ -88,13 +91,14 @@ class EquipmentScreen extends StatelessWidget {
             SizedBox(height: 10.h),
             Expanded(
               child: ListView(
-                children: [Wrap(
-                  spacing: 6.w,
-                  children: [
-                    for (int i = 0; i < 20; i++) const CoastContainer(),
-                  ],
-                ),
-              ]
+                children: [
+                  Wrap(
+                    spacing: 6.w,
+                    children: [
+                      for (int i = 0; i < 20; i++) const CoastContainer(),
+                    ],
+                  ),
+                ],
               ),
             )
           ],

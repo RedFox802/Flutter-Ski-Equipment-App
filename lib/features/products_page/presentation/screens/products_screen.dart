@@ -15,7 +15,7 @@ class _ProductsScreenState extends State<ProductsScreen>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 5, vsync: this);
+    TabController tabController = TabController(length: 5, vsync: this);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -28,9 +28,14 @@ class _ProductsScreenState extends State<ProductsScreen>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(
-                Icons.arrow_back_ios_new,
-                color: Colors.black,
+              GestureDetector(
+                child: const Icon(
+                  Icons.arrow_back_ios_new,
+                  color: Colors.black,
+                ),
+                onTap: (){
+                  Navigator.maybePop(context);
+                },
               ),
               SizedBox(height: 20.h),
               Row(
@@ -42,8 +47,7 @@ class _ProductsScreenState extends State<ProductsScreen>
                   SizedBox(width: 8.w),
                   Text(
                     '9',
-                    style: AppTextStyle.nunitoW700S18
-                        .copyWith(color: Colors.grey.shade500),
+                    style: AppTextStyle.nunitoW700S18.copyWith(color: Colors.grey.shade500),
                   ),
                 ],
               ),
@@ -52,7 +56,7 @@ class _ProductsScreenState extends State<ProductsScreen>
         ),
         bottom: TabBar(
           isScrollable: true,
-          controller: _tabController,
+          controller: tabController,
           unselectedLabelStyle: AppTextStyle.nunitoW600S12,
           labelStyle: AppTextStyle.nunitoW600S12,
           unselectedLabelColor: Colors.grey.shade500,
@@ -70,7 +74,7 @@ class _ProductsScreenState extends State<ProductsScreen>
         ),
       ),
       body: TabBarView(
-        controller: _tabController,
+        controller: tabController,
         children: const <Widget>[
           ProductsPart(),
           ProductsPart(),

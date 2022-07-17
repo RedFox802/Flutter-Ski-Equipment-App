@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
               icon: Icons.account_box_outlined,
               isUp: true,
               text: 'Мои анкеты',
-              onTup: () {
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -64,7 +64,7 @@ class ProfileScreen extends StatelessWidget {
               icon: Icons.info_outline,
               isUp: true,
               text: 'Связаться с поддержкой',
-              onTup: () {
+              onTap: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -78,7 +78,7 @@ class ProfileScreen extends StatelessWidget {
               icon: Icons.delete_outline_outlined,
               isUp: false,
               text: 'Удалить аккаунт',
-              onTup: () {
+              onTap: () {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -93,11 +93,12 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       actions: [
                         CupertinoDialogAction(
-                            onPressed: () {},
-                            child: Text(
-                              "Да",
-                              style: AppTextStyle.nunitoW600S14,
-                            )),
+                          onPressed: () {},
+                          child: Text(
+                            "Да",
+                            style: AppTextStyle.nunitoW600S14,
+                          ),
+                        ),
                         CupertinoDialogAction(
                           onPressed: () {},
                           child: Text(
@@ -118,7 +119,7 @@ class ProfileScreen extends StatelessWidget {
                 icon: Icons.exit_to_app_rounded,
                 isUp: false,
                 text: 'Выйти',
-                onTup: () {},
+                onTap: () {},
               ),
             ),
           ],

@@ -31,8 +31,8 @@ class ProductContainer extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.grey.shade100,
-              blurRadius: 8,
-              spreadRadius: 4,
+              blurRadius: 8.r,
+              spreadRadius: 4.r,
               offset: const Offset(0, 10),
             ),
           ],
@@ -49,7 +49,7 @@ class ProductContainer extends StatelessWidget {
                     style: AppTextStyle.nunitoW600S12,
                   ),
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(

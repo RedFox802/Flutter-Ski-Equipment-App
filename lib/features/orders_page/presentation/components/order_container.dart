@@ -17,8 +17,8 @@ class OrderContainer extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.shade100,
-            blurRadius: 8,
-            spreadRadius: 4,
+            blurRadius: 8.r,
+            spreadRadius: 4.r,
             offset: const Offset(0, 10),
           ),
         ],
@@ -46,9 +46,8 @@ class OrderContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('30.05 - 1.05',
-                    style: AppTextStyle.nunitoW600S12.copyWith(
-                      color: Colors.grey.shade500,
-                    )),
+                    style: AppTextStyle.nunitoW600S12
+                        .copyWith(color: Colors.grey.shade500)),
                 Text(
                   'Завершен',
                   style: AppTextStyle.nunitoW600S12
@@ -83,12 +82,13 @@ class OrderContainer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('2 дня',
-                    style: AppTextStyle.nunitoW600S14),
+                Text(
+                  '2 дня',
+                  style: AppTextStyle.nunitoW600S14,
+                ),
                 Text(
                   '13 000 ₽',
-                  style: AppTextStyle.nunitoW600S16
-                      .copyWith(color: Colors.blueAccent),
+                  style: AppTextStyle.nunitoW600S16.copyWith(color: Colors.blueAccent,),
                 ),
               ],
             ),

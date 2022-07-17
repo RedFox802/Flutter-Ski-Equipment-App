@@ -8,12 +8,12 @@ class AppBlueButton extends StatelessWidget {
   final String text;
   final double? width;
 
-  const AppBlueButton(
-      {Key? key,
-      required this.onPressed,
-      required this.text,
-      this.width})
-      : super(key: key);
+  const AppBlueButton({
+    Key? key,
+    required this.onPressed,
+    required this.text,
+    this.width,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +21,11 @@ class AppBlueButton extends StatelessWidget {
       height: 50.h,
       width: width ?? MediaQuery.of(context).size.width - 20.w,
       child: ElevatedButton(
-        onPressed:  onPressed,
+        onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor:
               MaterialStateProperty.all<Color>(Colors.blue.shade400),
-          elevation: MaterialStateProperty.all<double>(10),
+          elevation: MaterialStateProperty.all<double>(10.r),
           shape: MaterialStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.all(

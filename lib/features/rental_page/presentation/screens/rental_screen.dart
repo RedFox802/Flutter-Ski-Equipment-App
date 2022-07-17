@@ -37,24 +37,24 @@ class RentalScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            Navigator.maybePop(context);
-                          },
-                          child: const Icon(
+                          child: Icon(
                             Icons.arrow_back_ios_new,
                             color: Colors.white,
-                            size: 30,
+                            size: 30.r,
                           ),
-                        ),
-                        GestureDetector(
                           onTap: () {
                             Navigator.maybePop(context);
                           },
-                          child: const Icon(
+                        ),
+                        GestureDetector(
+                          child: Icon(
                             Icons.heart_broken_rounded,
                             color: Colors.white,
-                            size: 30,
+                            size: 30.r,
                           ),
+                          onTap: () {
+                            Navigator.maybePop(context);
+                          },
                         ),
                       ],
                     ),
@@ -165,18 +165,18 @@ class RentalScreen extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     ProductContainer(
+                      name: 'Горные лыжи',
                       oneDay: 4000,
                       twoDay: 5900,
-                      name: 'Горные лыжи',
                       threeDay: 6400,
                       fourDay: 12000,
                     ),
                     ProductContainer(
+                      name: 'Сноуборд',
                       oneDay: 5000,
                       twoDay: 8700,
-                      name: 'Сноуборд',
                       threeDay: 9560,
                       fourDay: 11340,
                     ),

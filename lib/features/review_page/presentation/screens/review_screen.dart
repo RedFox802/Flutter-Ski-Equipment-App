@@ -33,7 +33,10 @@ class _ReviewScreenState extends State<ReviewScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(height: 20.h),
-              Text('Оставьте отзыв', style: AppTextStyle.nunitoW700S18),
+              Text(
+                'Оставьте отзыв',
+                style: AppTextStyle.nunitoW700S18,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.h),
                 child: ClipRRect(
@@ -64,8 +67,8 @@ class _ReviewScreenState extends State<ReviewScreen> {
                     return index < value ? enableStarIcon : disableStarIcon;
                   },
                   starCount: 5,
-                  starSize: 28.r,
                   maxValue: 5,
+                  starSize: 28.r,
                   starSpacing: 8.w,
                   valueLabelVisibility: false,
                 ),

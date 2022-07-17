@@ -50,13 +50,17 @@ class RentalContainer extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
                   child: Align(
                       alignment: const Alignment(0, 1),
-                      child: Text('Название проката',
-                          style: AppTextStyle.nunitoW600S14)),
+                      child: Text(
+                        'Название проката',
+                        style: AppTextStyle.nunitoW600S14,
+                      )),
                 ),
                 Positioned(
                   top: height * 0.48,
                   right: 22.w,
-                  child: const RatingContainer(rating: 4.7,),
+                  child: const RatingContainer(
+                    rating: 4.7,
+                  ),
                 ),
               ],
             ),

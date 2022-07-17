@@ -63,7 +63,7 @@ class _AppButtonsRowState extends State<AppButtonsRow> {
                   : Colors.grey.shade50,
               borderRadius: BorderRadius.circular(10.r),
             ),
-            height: 60,
+            height: 60.h,
             width: MediaQuery.of(context).size.width / 2 - 20.w,
             child: Center(
               child: GestureDetector(

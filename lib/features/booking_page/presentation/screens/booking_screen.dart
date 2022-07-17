@@ -81,7 +81,10 @@ class BookingScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             SizedBox(
-              height: MediaQuery.of(context).size.height / 2.2,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 2.2,
               child: ListView(
                 children: [
                   Wrap(

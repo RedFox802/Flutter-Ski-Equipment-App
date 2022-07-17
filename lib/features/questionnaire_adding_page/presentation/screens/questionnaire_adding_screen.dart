@@ -16,7 +16,6 @@ class QuestionnaireAddingScreen extends StatelessWidget {
     final TextEditingController heightController = TextEditingController();
     final TextEditingController weightController = TextEditingController();
     final TextEditingController shoesController = TextEditingController();
-
     return Scaffold(
       appBar: const DefaultAppBar(),
       backgroundColor: Colors.white,
@@ -30,43 +29,47 @@ class QuestionnaireAddingScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             AppButtonsRow(
+              isFirstButton: true,
               firstText: 'Опытный',
               secondText: 'Новичок',
               firstOnTap: () {},
-              secondOnTap: () {}, isFirstButton: true,
+              secondOnTap: () {},
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
               child: AppTextField(
                 icon: Icons.person_sharp,
-                text: 'Имя',
                 controller: nameController,
+                text: 'Имя',
                 hint: 'Введите ваше имя',
               ),
             ),
             AppTextField(
               icon: Icons.arrow_upward,
-              text: 'Рост',
               controller: heightController,
+              text: 'Рост',
               hint: 'Введите ваш рост',
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
               child: AppTextField(
                 icon: Icons.person_outline_outlined,
-                text: 'Вес',
                 controller: weightController,
+                text: 'Вес',
                 hint: 'Введите ваш вес',
               ),
             ),
             AppTextField(
               icon: Icons.ac_unit_outlined,
-              text: 'Размер обуви',
               controller: shoesController,
+              text: 'Размер обуви',
               hint: 'Введите ваш размер обуви',
             ),
             SizedBox(height: 40.h),
-            AppBlueButton(onPressed: () {}, text: 'Сохранить'),
+            AppBlueButton(
+              text: 'Сохранить',
+              onPressed: () {},
+            ),
           ],
         ),
       ),

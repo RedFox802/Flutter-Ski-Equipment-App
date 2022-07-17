@@ -45,47 +45,47 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                     child: AppButtonsRow(
                       firstText: 'Доставка',
                       secondText: 'Самовывоз',
+                      isFirstButton: state.isDelivery,
                       firstOnTap: () {
                         context.read<ReceivingCubit>().setDelivery(true);
                       },
                       secondOnTap: () {
                         context.read<ReceivingCubit>().setDelivery(false);
                       },
-                      isFirstButton: state.isDelivery,
                     ),
                   ),
                   AppTextField(
-                    controller: controller,
                     text: 'Дата получения',
                     hint: 'Введите дату доставки',
+                    controller: controller,
                     icon: Icons.calendar_month,
                   ),
                   state.isDelivery
                       ? Padding(
                           padding: EdgeInsets.symmetric(vertical: 10.h),
                           child: AppTextField(
-                            controller: controller,
                             text: 'Адрес получения',
                             hint: 'Введите адрес доставки',
-                            icon: Icons.place_outlined,
                             buttonText: 'Карта',
+                            controller: controller,
+                            icon: Icons.place_outlined,
                             onTap: () {},
                           ),
                         )
                       : Padding(
                           padding: EdgeInsets.symmetric(vertical: 20.h),
                           child: AppTextField(
-                            controller: controller2,
-                            readOnly: true,
                             text: 'Наш адрес',
                             buttonText: 'Построить маршрут',
+                            controller: controller2,
+                            readOnly: true,
                             onTap: () {},
                           ),
                         ),
                   AppTextField(
-                    controller: controller,
                     text: 'Описание',
                     hint: 'Введите описание',
+                    controller: controller,
                   ),
                   SizedBox(height: 90.h),
                   AppBlueButton(

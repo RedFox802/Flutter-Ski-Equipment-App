@@ -65,7 +65,7 @@ class AppTextField extends StatelessWidget {
               suffixIcon: icon != null
                   ? Icon(
                       icon,
-                      size: 30,
+                      size: 30.r,
                     )
                   : null),
         )

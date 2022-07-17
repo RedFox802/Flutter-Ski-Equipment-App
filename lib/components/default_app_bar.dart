@@ -15,17 +15,16 @@ class DefaultAppBar extends StatelessWidget with PreferredSizeWidget {
 
   const DefaultAppBar({
     Key? key,
-    this.centreTitle = true,
     this.titleText,
     this.backgroundColor,
     this.action = const SizedBox.shrink(),
     this.leading = true,
+    this.centreTitle = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final ModalRoute<dynamic>? parentRoute = ModalRoute.of(context);
-    final bool canPop = parentRoute?.canPop ?? false;
+    final bool canPop = ModalRoute.of(context)?.canPop ?? false;
 
     return PreferredSize(
       preferredSize: Size.fromHeight(120.h),

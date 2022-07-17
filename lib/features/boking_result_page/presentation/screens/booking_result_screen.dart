@@ -21,15 +21,14 @@ class BookingResultScreen extends StatelessWidget {
             color: Colors.grey.shade800,
             size: 26.r,
           ),
-         onTap: () {
-           Navigator.push(
-             context,
-             MaterialPageRoute(
-               builder: ((_) => const ReviewScreen()),
-             ),
-           );
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: ((_) => const ReviewScreen()),
+              ),
+            );
           },
-
         ),
       ),
       backgroundColor: Colors.white,

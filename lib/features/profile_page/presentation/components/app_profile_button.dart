@@ -4,14 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../components/app_text_styles.dart';
 
 class AppProfileButton extends StatelessWidget {
-  final void Function() onTup;
+  final void Function() onTap;
   final IconData icon;
   final String text;
   final bool isUp;
 
   const AppProfileButton({
     Key? key,
-    required this.onTup,
+    required this.onTap,
     required this.icon,
     required this.text,
     required this.isUp,
@@ -22,7 +22,7 @@ class AppProfileButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: GestureDetector(
-        onTap: onTup,
+        onTap: onTap,
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           height: 50.h,

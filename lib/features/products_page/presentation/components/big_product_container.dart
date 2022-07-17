@@ -22,8 +22,8 @@ class BigProductContainer extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.grey.shade100,
-              blurRadius: 8,
-              spreadRadius: 4,
+              blurRadius: 8.r,
+              spreadRadius: 4.r,
               offset: const Offset(0, 10),
             ),
           ],
@@ -106,13 +106,21 @@ class BigProductContainer extends StatelessWidget {
               ),
             ),
             Align(
-        alignment: Alignment.bottomRight,
+              alignment: Alignment.bottomRight,
               child: GestureDetector(
                 child: Text(
                   'Забронировать',
                   style:
                       AppTextStyle.nunitoW600S12.copyWith(color: Colors.blue),
                 ),
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((_) => const EquipmentScreen()),
+                    ),
+                  );
+                },
               ),
             ),
           ],

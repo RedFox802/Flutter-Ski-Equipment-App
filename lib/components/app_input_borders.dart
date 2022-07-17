@@ -20,6 +20,7 @@ class AppInputBorders {
   );
 
   static final OutlineInputBorder supportInputBorder = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10.r),
-      borderSide: BorderSide(color: Colors.blueGrey.shade50));
+    borderRadius: BorderRadius.circular(10.r),
+    borderSide: BorderSide(color: Colors.blueGrey.shade50),
+  );
 }
