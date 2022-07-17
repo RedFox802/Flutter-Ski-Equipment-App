@@ -28,17 +28,17 @@ class _ReviewScreenState extends State<ReviewScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 20.h),
+              SizedBox(height: 10.h),
               Text(
-                'Оставьте отзыв',
-                style: AppTextStyle.nunitoW700S18,
-              ),
+                  'Оставьте отзыв',
+                  style: AppTextStyle.nunitoW700S18,
+                ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10.h),
+                padding: EdgeInsets.symmetric(vertical: 20.h),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20.r),
                   child: Assets.images.imSki.image(),

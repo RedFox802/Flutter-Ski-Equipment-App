@@ -1,3 +1,4 @@
+import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,7 +14,6 @@ class QuestionnaireScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: DefaultAppBar(
-        titleText: 'Мои анкеты',
         centreTitle: false,
         action: IconButton(
           icon: Icon(
@@ -31,9 +31,20 @@ class QuestionnaireScreen extends StatelessWidget {
           },
         ),
       ),
-      body: ListView(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          for (int i = 0; i < 20; i++) const QuestionnaireContainer(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.w,vertical: 8.h),
+            child: Text('Мои анкеты',style: AppTextStyle.nunitoW700S18,),
+          ),
+          Expanded(
+            child: ListView(
+              children: [
+                for (int i = 0; i < 20; i++) const QuestionnaireContainer(),
+              ],
+            ),
+          ),
         ],
       ),
     );

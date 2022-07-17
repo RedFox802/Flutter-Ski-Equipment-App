@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../components/app_blue_button.dart';
+import '../../../questionnaire_adding_page/presentation/screens/questionnaire_adding_screen.dart';
 import '../../../receiving_page/screens/receiving_screen.dart';
 import '../components/questionnaire_container.dart';
 
@@ -40,7 +41,7 @@ class BookingScreen extends StatelessWidget {
                     child: Text(
                       'Горные лыжи',
                       style: AppTextStyle.nunitoW600S16
-                          .copyWith(color: Colors.blueAccent),
+                          .copyWith(color: Colors.blue.shade400),
                     ),
                   ),
                   Padding(
@@ -54,7 +55,7 @@ class BookingScreen extends StatelessWidget {
                     child: Text(
                       '3 дня',
                       style: AppTextStyle.nunitoW600S16
-                          .copyWith(color: Colors.blueAccent),
+                          .copyWith(color: Colors.blue.shade400),
                     ),
                   ),
                   Padding(
@@ -70,8 +71,17 @@ class BookingScreen extends StatelessWidget {
                           child: Text(
                             'Добавить',
                             style: AppTextStyle.nunitoW600S14
-                                .copyWith(color: Colors.blueAccent),
+                                .copyWith(color: Colors.blue.shade400),
                           ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: ((_) =>
+                                    const QuestionnaireAddingScreen()),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -81,10 +91,7 @@ class BookingScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height / 2.2,
+              height: MediaQuery.of(context).size.height / 2.2,
               child: ListView(
                 children: [
                   Wrap(

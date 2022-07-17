@@ -62,8 +62,9 @@ class _ProductsScreenState extends State<ProductsScreen>
           unselectedLabelColor: Colors.grey.shade500,
           labelColor: Colors.blue,
           indicatorColor: Colors.blue,
-          indicatorWeight: 4,
-          indicatorPadding: EdgeInsets.symmetric(horizontal: 10.w),
+          indicatorWeight: 3,
+          indicator: BoxDecoration(borderRadius: BorderRadius.circular(20.r),color: Colors.blue),
+          indicatorPadding: EdgeInsets.only(top: 18.h,left: 10.w,right: 10.w),
           tabs: const <Widget>[
             Text('Все',),
             Text('Лыжи'),

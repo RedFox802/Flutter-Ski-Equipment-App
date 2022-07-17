@@ -10,7 +10,7 @@ class OrderContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-      margin: EdgeInsets.symmetric(vertical: 4.h),
+      margin: EdgeInsets.symmetric(vertical: 4.h,horizontal: 10.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.r),
@@ -31,7 +31,7 @@ class OrderContainer extends StatelessWidget {
             children: [
               Text(
                 'Горные лыжи',
-                style: AppTextStyle.nunitoW700S16,
+                style: AppTextStyle.nunitoW600S16,
               ),
               Text(
                 'Самовывоз',
@@ -88,7 +88,7 @@ class OrderContainer extends StatelessWidget {
                 ),
                 Text(
                   '13 000 ₽',
-                  style: AppTextStyle.nunitoW600S16.copyWith(color: Colors.blueAccent,),
+                  style: AppTextStyle.nunitoW600S16.copyWith(color: Colors.blue.shade400,),
                 ),
               ],
             ),

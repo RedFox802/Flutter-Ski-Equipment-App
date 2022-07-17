@@ -13,13 +13,16 @@ class OrdersScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+          padding: EdgeInsets.symmetric(vertical: 10.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Мои заказы',
-                style: AppTextStyle.nunitoW700S18,
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: Text(
+                  'Мои заказы',
+                  style: AppTextStyle.nunitoW700S18,
+                ),
               ),
               SizedBox(height: 10.h),
               Expanded(

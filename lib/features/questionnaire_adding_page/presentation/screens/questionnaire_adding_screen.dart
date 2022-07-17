@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../components/app_buttons_row.dart';
 import '../../../../components/app_text_field.dart';
+import '../../../home_page/presentation/screens/home_screen.dart';
 
 class QuestionnaireAddingScreen extends StatelessWidget {
   const QuestionnaireAddingScreen({Key? key}) : super(key: key);
@@ -68,7 +69,14 @@ class QuestionnaireAddingScreen extends StatelessWidget {
             SizedBox(height: 40.h),
             AppBlueButton(
               text: 'Сохранить',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((_) => const HomeScreen()),
+                  ),
+                );
+              },
             ),
           ],
         ),

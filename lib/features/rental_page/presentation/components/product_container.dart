@@ -46,7 +46,7 @@ class ProductContainer extends StatelessWidget {
                 children: [
                   Text(
                     name,
-                    style: AppTextStyle.nunitoW600S12,
+                    style: AppTextStyle.nunitoW700S12,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -59,7 +59,7 @@ class ProductContainer extends StatelessWidget {
                     },
                     child: const Icon(
                       Icons.arrow_forward,
-                      color: Colors.blueAccent,
+                      color: Colors.blue,
                     ),
                   ),
                 ],

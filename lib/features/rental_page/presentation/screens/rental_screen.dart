@@ -86,7 +86,7 @@ class RentalScreen extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.phone,
-                        color: Colors.blueAccent,
+                        color: Colors.blue,
                         size: 26.r,
                       ),
                       SizedBox(width: 20.w),
@@ -101,7 +101,7 @@ class RentalScreen extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.place_outlined,
-                      color: Colors.blueAccent,
+                      color: Colors.blue,
                       size: 26.r,
                     ),
                     SizedBox(width: 20.w),
@@ -117,7 +117,7 @@ class RentalScreen extends StatelessWidget {
                     children: [
                       Icon(
                         Icons.help_outline_rounded,
-                        color: Colors.blueAccent,
+                        color: Colors.blue,
                         size: 26.r,
                       ),
                       SizedBox(width: 20.w),
@@ -148,6 +148,9 @@ class RentalScreen extends StatelessWidget {
                         ],
                       ),
                       GestureDetector(
+                        child: Text('Все товары',
+                            style: AppTextStyle.nunitoW600S14
+                                .copyWith(color: Colors.blue)),
                         onTap: () {
                           Navigator.push(
                             context,
@@ -156,9 +159,6 @@ class RentalScreen extends StatelessWidget {
                             ),
                           );
                         },
-                        child: Text('Все товары',
-                            style: AppTextStyle.nunitoW600S14
-                                .copyWith(color: Colors.blueAccent)),
                       )
                     ],
                   ),

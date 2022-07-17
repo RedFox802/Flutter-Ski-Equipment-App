@@ -12,7 +12,7 @@ class CatalogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        color: Colors.grey.shade200,
+        color: Colors.grey.shade100,
         child: Column(
           children: [
             Container(

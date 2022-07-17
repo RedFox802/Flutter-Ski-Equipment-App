@@ -41,7 +41,7 @@ class AppTextField extends StatelessWidget {
                       child: Text(
                         buttonText!,
                         style: AppTextStyle.nunitoW600S14
-                            .copyWith(color: Colors.blueAccent),
+                            .copyWith(color: Colors.blue),
                       ),
                     )
                   ],
@@ -55,13 +55,13 @@ class AppTextField extends StatelessWidget {
               hintStyle: AppTextStyle.nunitoW600S14
                   .copyWith(color: Colors.grey.shade500),
               filled: true,
-              fillColor: Colors.blueGrey.shade50,
-              border: AppInputBorders.supportInputBorder,
-              errorBorder: AppInputBorders.supportInputBorder,
-              disabledBorder: AppInputBorders.supportInputBorder,
-              enabledBorder: AppInputBorders.supportInputBorder,
-              focusedBorder: AppInputBorders.supportInputBorder,
-              focusedErrorBorder: AppInputBorders.supportInputBorder,
+              fillColor: Colors.grey.shade50,
+              border: AppInputBorders.telephoneInputBorder,
+              errorBorder: AppInputBorders.telephoneInputBorder,
+              disabledBorder: AppInputBorders.telephoneInputBorder,
+              enabledBorder:AppInputBorders.telephoneInputBorder,
+              focusedBorder: AppInputBorders.telephoneInputBorder,
+              focusedErrorBorder: AppInputBorders.telephoneInputBorder,
               suffixIcon: icon != null
                   ? Icon(
                       icon,

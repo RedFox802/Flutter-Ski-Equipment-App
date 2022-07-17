@@ -1,6 +1,7 @@
 import 'package:equipment/components/app_input_borders.dart';
 import 'package:equipment/components/app_text_styles.dart';
 import 'package:equipment/components/default_app_bar.dart';
+import 'package:equipment/features/home_page/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -30,23 +31,33 @@ class SupportConnectionScreen extends StatelessWidget {
             ),
             SizedBox(height: 6.h),
             TextFormField(
+              maxLines: 8,
               decoration: InputDecoration(
-                fillColor: Colors.blueGrey.shade50,
                 filled: true,
+                fillColor: Colors.grey.shade50,
                 hintText: 'Введите свой вопрос',
                 hintStyle: AppTextStyle.nunitoW600S14
                     .copyWith(color: Colors.grey.shade500),
-                border: AppInputBorders.supportInputBorder,
-                enabledBorder: AppInputBorders.supportInputBorder,
-                errorBorder: AppInputBorders.supportInputBorder,
-                disabledBorder: AppInputBorders.supportInputBorder,
-                focusedErrorBorder: AppInputBorders.supportInputBorder,
-                focusedBorder: AppInputBorders.supportInputBorder,
+                border: AppInputBorders.telephoneInputBorder,
+                enabledBorder: AppInputBorders.telephoneInputBorder,
+                errorBorder: AppInputBorders.telephoneInputBorder,
+                disabledBorder: AppInputBorders.telephoneInputBorder,
+                focusedErrorBorder: AppInputBorders.telephoneInputBorder,
+                focusedBorder: AppInputBorders.telephoneInputBorder,
               ),
-              maxLines: 8,
             ),
             const Spacer(),
-            AppBlueButton(text: 'Отправить', onPressed: () {}),
+            AppBlueButton(
+              text: 'Отправить',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((_) => const HomeScreen()),
+                  ),
+                );
+              },
+            ),
             SizedBox(height: 10.h),
           ],
         ),

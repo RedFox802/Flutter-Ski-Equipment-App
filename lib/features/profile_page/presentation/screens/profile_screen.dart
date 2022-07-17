@@ -14,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        color: Colors.grey.shade200,
+        color: Colors.grey.shade100,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -104,7 +104,7 @@ class ProfileScreen extends StatelessWidget {
                           child: Text(
                             "Отмена",
                             style: AppTextStyle.nunitoW600S14
-                                .copyWith(color: Colors.blueAccent),
+                                .copyWith(color: Colors.blue),
                           ),
                         ),
                       ],

@@ -48,7 +48,7 @@ class BigProductContainer extends StatelessWidget {
                   },
                   child: const Icon(
                     Icons.arrow_forward,
-                    color: Colors.blueAccent,
+                    color: Colors.blue,
                   ),
                 ),
               ],

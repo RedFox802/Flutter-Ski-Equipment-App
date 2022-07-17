@@ -87,7 +87,7 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                     hint: 'Введите описание',
                     controller: controller,
                   ),
-                  SizedBox(height: 90.h),
+                  SizedBox(height: 120.h),
                   AppBlueButton(
                     text: 'Забронировать',
                     onPressed: () {

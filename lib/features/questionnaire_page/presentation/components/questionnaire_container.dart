@@ -2,6 +2,8 @@ import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../questionnaire_adding_page/presentation/screens/questionnaire_adding_screen.dart';
+
 class QuestionnaireContainer extends StatelessWidget {
   const QuestionnaireContainer({Key? key}) : super(key: key);
 
@@ -34,14 +36,21 @@ class QuestionnaireContainer extends StatelessWidget {
                   children: [
                     Text(
                       'Иван, опытный',
-                      style: AppTextStyle.nunitoW600S14,
+                      style: AppTextStyle.nunitoW600S16,
                     ),
                     IconButton(
-                      onPressed: () {},
                       icon: const Icon(
                         Icons.edit,
-                        color: Colors.blueAccent,
+                        color: Colors.blue,
                       ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: ((_) => const QuestionnaireAddingScreen()),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -52,7 +61,7 @@ class QuestionnaireContainer extends StatelessWidget {
                       height: 36.h,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade50,
-                        borderRadius: BorderRadius.circular(30.r),
+                        borderRadius: BorderRadius.circular(16.r),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +84,7 @@ class QuestionnaireContainer extends StatelessWidget {
                         height: 36.h,
                         decoration: BoxDecoration(
                           color: Colors.grey.shade50,
-                          borderRadius: BorderRadius.circular(30.r),
+                          borderRadius: BorderRadius.circular(16.r),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -96,7 +105,7 @@ class QuestionnaireContainer extends StatelessWidget {
                       height: 36.h,
                       decoration: BoxDecoration(
                         color: Colors.grey.shade50,
-                        borderRadius: BorderRadius.circular(30.r),
+                        borderRadius: BorderRadius.circular(16.r),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

@@ -29,13 +29,13 @@ class AppProfileButton extends StatelessWidget {
           decoration: BoxDecoration(
             color: isUp ? Colors.white : null,
             borderRadius: BorderRadius.circular(10.r),
-            border: !isUp ? Border.all(color: Colors.grey.shade500) : null,
+            border: !isUp ? Border.all(color: Colors.grey.shade400) : null,
           ),
           child: Row(
             children: [
               Icon(
                 icon,
-                color: isUp ? Colors.blueAccent : Colors.grey.shade700,
+                color: isUp ? Colors.blueAccent : Colors.grey.shade600,
               ),
               SizedBox(width: 10.w),
               Text(

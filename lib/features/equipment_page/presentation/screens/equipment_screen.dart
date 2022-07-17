@@ -42,7 +42,7 @@ class EquipmentScreen extends StatelessWidget {
                 child: Text(
                   'Читать далее',
                   style: AppTextStyle.nunitoW600S14
-                      .copyWith(color: Colors.blueAccent),
+                      .copyWith(color: Colors.blue),
                 ),
               ),
             ),
@@ -81,12 +81,12 @@ class EquipmentScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 10.h),
               child: Text(
                 'Цены',
-                style: AppTextStyle.nunitoW700S14,
+                style: AppTextStyle.nunitoW600S14,
               ),
             ),
             Text(
               'Выберите интересующую опцию и перейдите к бронированию',
-              style: AppTextStyle.nunitoW600S14,
+              style: AppTextStyle.nunitoW600S12,
             ),
             SizedBox(height: 10.h),
             Expanded(

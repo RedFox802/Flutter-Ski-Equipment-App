@@ -14,12 +14,12 @@ class QuestionnaireContainer2 extends StatelessWidget {
           height: 70.h,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20.r),
+            borderRadius: BorderRadius.circular(14.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.shade100,
-                blurRadius: 8,
-                spreadRadius: 4,
+                blurRadius: 8.r,
+                spreadRadius: 4.r,
                 offset: const Offset(0, 10),
               ),
             ],

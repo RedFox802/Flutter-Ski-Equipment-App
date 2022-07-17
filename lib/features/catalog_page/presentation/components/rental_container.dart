@@ -29,7 +29,7 @@ class RentalContainer extends StatelessWidget {
           height: height,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20.r),
+            borderRadius: BorderRadius.circular(16.r),
           ),
           child: Padding(
             padding: EdgeInsets.only(top: 6.h),
@@ -38,7 +38,7 @@ class RentalContainer extends StatelessWidget {
                 Align(
                   alignment: const Alignment(0, -1),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20.r),
+                    borderRadius: BorderRadius.circular(16.r),
                     child: Assets.images.imSki.image(
                         height: height * 0.6,
                         width: width - 20.w,
