@@ -8,15 +8,24 @@ import '../../../../components/app_buttons_row.dart';
 import '../../../../components/app_text_field.dart';
 import '../../../home_page/presentation/screens/home_screen.dart';
 
-class QuestionnaireAddingScreen extends StatelessWidget {
+class QuestionnaireAddingScreen extends StatefulWidget {
   const QuestionnaireAddingScreen({Key? key}) : super(key: key);
 
   @override
+  State<QuestionnaireAddingScreen> createState() =>
+      _QuestionnaireAddingScreenState();
+}
+
+class _QuestionnaireAddingScreenState extends State<QuestionnaireAddingScreen> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController heightController = TextEditingController();
+  final TextEditingController weightController = TextEditingController();
+  final TextEditingController shoesController = TextEditingController();
+
+  bool isNew = false;
+
+  @override
   Widget build(BuildContext context) {
-    final TextEditingController nameController = TextEditingController();
-    final TextEditingController heightController = TextEditingController();
-    final TextEditingController weightController = TextEditingController();
-    final TextEditingController shoesController = TextEditingController();
     return Scaffold(
       appBar: const DefaultAppBar(),
       backgroundColor: Colors.white,
@@ -30,11 +39,23 @@ class QuestionnaireAddingScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             AppButtonsRow(
-              isFirstButton: true,
+              isFirstButton: isNew,
               firstText: 'Опытный',
               secondText: 'Новичок',
-              firstOnTap: () {},
-              secondOnTap: () {},
+              firstOnTap: () {
+                if (!isNew) {
+                  setState(() {
+                    isNew = !isNew;
+                  });
+                }
+              },
+              secondOnTap: () {
+                if (isNew) {
+                  setState(() {
+                    isNew = !isNew;
+                  });
+                }
+              },
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
