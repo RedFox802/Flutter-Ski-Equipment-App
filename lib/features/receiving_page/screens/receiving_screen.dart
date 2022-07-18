@@ -19,6 +19,9 @@ class ReceivingScreen extends StatefulWidget {
 }
 
 class _ReceivingScreenState extends State<ReceivingScreen> {
+
+  bool isDelivery=true;
+
   @override
   Widget build(BuildContext cont3ext) {
     final TextEditingController controller = TextEditingController();
@@ -45,12 +48,20 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                     child: AppButtonsRow(
                       firstText: 'Доставка',
                       secondText: 'Самовывоз',
-                      isFirstButton: state.isDelivery,
+                      isFirstButton: isDelivery,
                       firstOnTap: () {
-                        context.read<ReceivingCubit>().setDelivery(true);
+                        if (!isDelivery) {
+                          setState((){
+                            isDelivery=!isDelivery;
+                          });
+                        }
                       },
                       secondOnTap: () {
-                        context.read<ReceivingCubit>().setDelivery(false);
+                        if (isDelivery) {
+                         setState((){
+                           isDelivery=!isDelivery;
+                         });
+                        }
                       },
                     ),
                   ),
@@ -60,7 +71,7 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                     controller: controller,
                     icon: Icons.calendar_month,
                   ),
-                  state.isDelivery
+                  isDelivery
                       ? Padding(
                           padding: EdgeInsets.symmetric(vertical: 10.h),
                           child: AppTextField(

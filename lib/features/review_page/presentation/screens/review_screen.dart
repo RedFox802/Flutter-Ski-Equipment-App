@@ -17,13 +17,13 @@ class ReviewScreen extends StatefulWidget {
 }
 
 class _ReviewScreenState extends State<ReviewScreen> {
+  double value = 0;
   @override
   Widget build(BuildContext context) {
     var disableStarIcon =
         Assets.icons.iconStar.svg(color: Colors.grey.shade500);
     var enableStarIcon = Assets.icons.iconStar.svg(color: Colors.yellowAccent);
-    double value = 0;
-
+    
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
