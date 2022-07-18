@@ -6,8 +6,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../gen/assets.gen.dart';
 import '../components/coast_container.dart';
 
-class EquipmentScreen extends StatelessWidget {
+class EquipmentScreen extends StatefulWidget {
   const EquipmentScreen({Key? key}) : super(key: key);
+
+  @override
+  State<EquipmentScreen> createState() => _EquipmentScreenState();
+}
+
+class _EquipmentScreenState extends State<EquipmentScreen> {
+  bool isRead = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,53 +37,65 @@ class EquipmentScreen extends StatelessWidget {
                 style: AppTextStyle.nunitoW700S14,
               ),
             ),
-            Text(
-              'Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня',
-              style: AppTextStyle.nunitoW600S14,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
+            !isRead
+                ? Text(
+                    'Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигняКрепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня',
+                    style: AppTextStyle.nunitoW600S14,
+                    maxLines: !isRead ? 2 : 10,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                : Text(
+                    'Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигняКрепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня',
+                    style: AppTextStyle.nunitoW600S14,
+                  ),
             Padding(
               padding: EdgeInsets.only(top: 6.h, bottom: 20.h),
               child: GestureDetector(
                 child: Text(
-                  'Читать далее',
-                  style: AppTextStyle.nunitoW600S14
-                      .copyWith(color: Colors.blue),
+                  !isRead ? 'Читать далее' : 'Свернуть',
+                  style:
+                      AppTextStyle.nunitoW600S14.copyWith(color: Colors.blue),
+                ),
+                onTap: () {
+                  setState(() {
+                    isRead = !isRead;
+                  });
+                },
+              ),
+            ),
+            if (!isRead)
+              Text(
+                'Фото',
+                style: AppTextStyle.nunitoW700S14,
+              ),
+            SizedBox(height: 10.h),
+            if (!isRead)
+              SizedBox(
+                height: 170.h,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20.r),
+                      child: Assets.images.imSki.image(),
+                    ),
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20.r),
+                      child: Assets.images.imSki.image(),
+                    ),
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20.r),
+                      child: Assets.images.imSki.image(),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            Text(
-              'Фото',
-              style: AppTextStyle.nunitoW700S14,
-            ),
-            SizedBox(height: 10.h),
-            SizedBox(
-              height: 170.h,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20.r),
-                    child: Assets.images.imSki.image(),
-                  ),
-                  SizedBox(
-                    width: 8.w,
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20.r),
-                    child: Assets.images.imSki.image(),
-                  ),
-                  SizedBox(
-                    width: 8.w,
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20.r),
-                    child: Assets.images.imSki.image(),
-                  ),
-                ],
-              ),
-            ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
               child: Text(
