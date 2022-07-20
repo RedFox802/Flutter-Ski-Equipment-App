@@ -59,13 +59,13 @@ class AppTextField extends StatelessWidget {
               border: AppInputBorders.telephoneInputBorder,
               errorBorder: AppInputBorders.telephoneInputBorder,
               disabledBorder: AppInputBorders.telephoneInputBorder,
-              enabledBorder:AppInputBorders.telephoneInputBorder,
+              enabledBorder: AppInputBorders.telephoneInputBorder,
               focusedBorder: AppInputBorders.telephoneInputBorder,
               focusedErrorBorder: AppInputBorders.telephoneInputBorder,
               suffixIcon: icon != null
                   ? Icon(
                       icon,
-                      size: 30.r,
+                      size: 28.r,
                     )
                   : null),
         )

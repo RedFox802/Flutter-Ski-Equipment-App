@@ -1,13 +1,22 @@
 import 'package:equipment/components/app_text_styles.dart';
 import 'package:equipment/components/default_app_bar.dart';
+import 'package:equipment/features/catalog_page/domain/entity/rental/rental_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../gen/assets.gen.dart';
+import '../../../catalog_page/domain/entity/products/product_entity.dart';
 import '../components/coast_container.dart';
 
 class EquipmentScreen extends StatefulWidget {
-  const EquipmentScreen({Key? key}) : super(key: key);
+  final ProductEntity productEntity;
+  final RentalEntity rental;
+
+  const EquipmentScreen({
+    Key? key,
+    required this.productEntity,
+    required this.rental,
+  }) : super(key: key);
 
   @override
   State<EquipmentScreen> createState() => _EquipmentScreenState();
@@ -27,7 +36,7 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Горные лыжи',
+              widget.productEntity.name,
               style: AppTextStyle.nunitoW700S18,
             ),
             Padding(
@@ -39,13 +48,13 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
             ),
             !isRead
                 ? Text(
-                    'Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигняКрепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня',
+                    widget.productEntity.description,
                     style: AppTextStyle.nunitoW600S14,
                     maxLines: !isRead ? 2 : 10,
                     overflow: TextOverflow.ellipsis,
                   )
                 : Text(
-                    'Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигняКрепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня Крепкий удобный шлем и какая то фигня',
+                    widget.productEntity.description,
                     style: AppTextStyle.nunitoW600S14,
                   ),
             Padding(
@@ -114,7 +123,14 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
                   Wrap(
                     spacing: 6.w,
                     children: [
-                      for (int i = 0; i < 20; i++) const CoastContainer(),
+                      for (int i = 0;
+                          i < widget.productEntity.prices.length;
+                          i++)
+                        PriceContainer(
+                          priceEntity: widget.productEntity.prices[i],
+                          rental: widget.rental,
+                          productEntity: widget.productEntity,
+                        ),
                     ],
                   ),
                 ],

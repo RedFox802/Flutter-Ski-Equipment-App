@@ -2,6 +2,9 @@ import 'package:equipment/components/app_blue_button.dart';
 import 'package:equipment/components/app_buttons_row.dart';
 import 'package:equipment/components/app_text_styles.dart';
 import 'package:equipment/components/default_app_bar.dart';
+import 'package:equipment/features/catalog_page/domain/entity/price/price_entity.dart';
+import 'package:equipment/features/catalog_page/domain/entity/products/product_entity.dart';
+import 'package:equipment/features/catalog_page/domain/entity/rental/rental_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,21 +15,29 @@ import '../domain/receiving_cubit.dart';
 import '../domain/state/receiving_state.dart';
 
 class ReceivingScreen extends StatefulWidget {
-  const ReceivingScreen({Key? key}) : super(key: key);
+  final RentalEntity rental;
+  final ProductEntity productEntity;
+  final PriceEntity priceEntity;
+
+  const ReceivingScreen({
+    Key? key,
+    required this.rental,
+    required this.productEntity,
+    required this.priceEntity,
+  }) : super(key: key);
 
   @override
   State<ReceivingScreen> createState() => _ReceivingScreenState();
 }
 
 class _ReceivingScreenState extends State<ReceivingScreen> {
-
-  bool isDelivery=true;
+  bool isDelivery = true;
 
   @override
   Widget build(BuildContext cont3ext) {
     final TextEditingController controller = TextEditingController();
     final TextEditingController controller2 =
-        TextEditingController(text: 'Сочи, Красная полняна, 4');
+        TextEditingController(text: widget.rental.address);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -51,16 +62,16 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                       isFirstButton: isDelivery,
                       firstOnTap: () {
                         if (!isDelivery) {
-                          setState((){
-                            isDelivery=!isDelivery;
+                          setState(() {
+                            isDelivery = !isDelivery;
                           });
                         }
                       },
                       secondOnTap: () {
                         if (isDelivery) {
-                         setState((){
-                           isDelivery=!isDelivery;
-                         });
+                          setState(() {
+                            isDelivery = !isDelivery;
+                          });
                         }
                       },
                     ),
@@ -102,6 +113,7 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                   AppBlueButton(
                     text: 'Забронировать',
                     onPressed: () {
+                      //Тут будет создаваться заказ и передаваться дальше
                       Navigator.push(
                         context,
                         MaterialPageRoute(

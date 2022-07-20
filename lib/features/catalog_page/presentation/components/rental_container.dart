@@ -1,4 +1,5 @@
 import 'package:equipment/components/app_text_styles.dart';
+import 'package:equipment/features/catalog_page/domain/entity/rental/rental_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,7 +8,12 @@ import '../../../../gen/assets.gen.dart';
 import '../../../rental_page/presentation/screens/rental_screen.dart';
 
 class RentalContainer extends StatelessWidget {
-  const RentalContainer({Key? key}) : super(key: key);
+  final RentalEntity rentalEntity;
+
+  const RentalContainer({
+    Key? key,
+    required this.rentalEntity,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +26,9 @@ class RentalContainer extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: ((_) => const RentalScreen()),
+              builder: ((_) => RentalScreen(
+                    rentalEntity: rentalEntity,
+                  )),
             ),
           );
         },
@@ -45,21 +53,21 @@ class RentalContainer extends StatelessWidget {
                         fit: BoxFit.fill),
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
-                  child: Align(
-                      alignment: const Alignment(0, 1),
-                      child: Text(
-                        'Название проката',
-                        style: AppTextStyle.nunitoW600S14,
-                      )),
+                Positioned(
+                  bottom: 20.h,
+                  left: 14.w,
+                  right: 4.w,
+                  child: Text(
+                    rentalEntity.name,
+                    style: AppTextStyle.nunitoW600S14,
+                    textAlign: TextAlign.start,
+                  ),
                 ),
                 Positioned(
                   top: height * 0.48,
                   right: 22.w,
-                  child: const RatingContainer(
-                    rating: 4.7,
+                  child: RatingContainer(
+                    rating: rentalEntity.rating,
                   ),
                 ),
               ],

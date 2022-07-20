@@ -5,10 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../gen/assets.gen.dart';
+import '../../../booking_page/domain/entity/order_entity.dart';
 import '../../../review_page/presentation/screens/review_screen.dart';
 
 class BookingResultScreen extends StatelessWidget {
-  const BookingResultScreen({Key? key}) : super(key: key);
+  const BookingResultScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +19,10 @@ class BookingResultScreen extends StatelessWidget {
       appBar: DefaultAppBar(
         leading: false,
         action: GestureDetector(
-          child: Icon(
-            Icons.add,
-            color: Colors.grey.shade800,
-            size: 26.r,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 14.w),
+            child: Assets.icons.icCross
+                .svg(color: Colors.grey.shade700, height: 14.w, width: 14.w),
           ),
           onTap: () {
             Navigator.push(
@@ -39,7 +42,7 @@ class BookingResultScreen extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                padding: EdgeInsets.all(16.w),
+                padding: EdgeInsets.all(16.r),
                 width: 120.w,
                 height: 120.w,
                 decoration: BoxDecoration(
@@ -47,15 +50,12 @@ class BookingResultScreen extends StatelessWidget {
                   color: Colors.green.shade50,
                 ),
                 child: Container(
+                  padding: EdgeInsets.all(20.r),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.green.shade300,
                   ),
-                  child: SizedBox(
-                    height: 30.h,
-                    width: 30.h,
-                    child: Assets.icons.icOk.svg(color: Colors.white),
-                  ),
+                  child: Assets.icons.icOk.svg(color: Colors.white),
                 ),
               ),
             ),
@@ -72,7 +72,9 @@ class BookingResultScreen extends StatelessWidget {
               style: AppTextStyle.nunitoW600S14,
             ),
             SizedBox(height: 4.h),
-            const OrderContainer()
+            const OrderContainer(
+              orderEntity: OrderEntity(),
+            )
           ],
         ),
       ),

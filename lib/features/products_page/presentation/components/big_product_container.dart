@@ -1,12 +1,20 @@
 import 'package:equipment/components/app_text_styles.dart';
+import 'package:equipment/features/catalog_page/domain/entity/rental/rental_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../gen/assets.gen.dart';
 
+import '../../../catalog_page/domain/entity/products/product_entity.dart';
 import '../../../equipment_page/presentation/screens/equipment_screen.dart';
 
 class BigProductContainer extends StatelessWidget {
+  final RentalEntity rentalEntity;
+  final ProductEntity product;
+
   const BigProductContainer({
     Key? key,
+    required this.rentalEntity,
+    required this.product,
   }) : super(key: key);
 
   @override
@@ -34,7 +42,7 @@ class BigProductContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Горные лыжи',
+                  product.name,
                   style: AppTextStyle.nunitoW600S16,
                 ),
                 GestureDetector(
@@ -42,14 +50,14 @@ class BigProductContainer extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: ((_) => const EquipmentScreen()),
+                        builder: ((_) => EquipmentScreen(
+                              productEntity: product,
+                              rental: rentalEntity,
+                            )),
                       ),
                     );
                   },
-                  child: const Icon(
-                    Icons.arrow_forward,
-                    color: Colors.blue,
-                  ),
+                  child: Assets.icons.icArrowRight.svg(color: Colors.blue),
                 ),
               ],
             ),
@@ -66,42 +74,44 @@ class BigProductContainer extends StatelessWidget {
                             .copyWith(color: Colors.grey.shade500),
                       ),
                       Text(
-                        '2000 ₽',
+                        '${product.prices.first.price} ₽',
                         style: AppTextStyle.nunitoW600S12,
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: Column(
+                  if (product.prices.length >= 2)
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '2 день',
+                            style: AppTextStyle.nunitoW600S12
+                                .copyWith(color: Colors.grey.shade500),
+                          ),
+                          Text(
+                            '${product.prices[1].price} ₽',
+                            style: AppTextStyle.nunitoW600S12,
+                          ),
+                        ],
+                      ),
+                    ),
+                  if (product.prices.length >= 3)
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '2 день',
+                          '3 день',
                           style: AppTextStyle.nunitoW600S12
                               .copyWith(color: Colors.grey.shade500),
                         ),
                         Text(
-                          '3200 ₽',
+                          '${product.prices[2].price} ₽',
                           style: AppTextStyle.nunitoW600S12,
-                        ),
+                        )
                       ],
                     ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '3 день',
-                        style: AppTextStyle.nunitoW600S12
-                            .copyWith(color: Colors.grey.shade500),
-                      ),
-                      Text(
-                        '2900 ₽',
-                        style: AppTextStyle.nunitoW600S12,
-                      )
-                    ],
-                  ),
                 ],
               ),
             ),
@@ -113,11 +123,14 @@ class BigProductContainer extends StatelessWidget {
                   style:
                       AppTextStyle.nunitoW600S12.copyWith(color: Colors.blue),
                 ),
-                onTap: (){
+                onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: ((_) => const EquipmentScreen()),
+                      builder: ((_) => EquipmentScreen(
+                            productEntity: product,
+                            rental: rentalEntity,
+                          )),
                     ),
                   );
                 },

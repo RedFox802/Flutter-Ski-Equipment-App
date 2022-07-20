@@ -1,23 +1,20 @@
 import 'package:equipment/components/app_text_styles.dart';
+import 'package:equipment/features/catalog_page/domain/entity/products/product_entity.dart';
+import 'package:equipment/features/catalog_page/domain/entity/rental/rental_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../../equipment_page/presentation/screens/equipment_screen.dart';
 
 class ProductContainer extends StatelessWidget {
-  final String name;
-  final int oneDay;
-  final int? twoDay;
-  final int? threeDay;
-  final int? fourDay;
+  final ProductEntity productEntity;
+  final RentalEntity rental;
 
   const ProductContainer({
     Key? key,
-    required this.name,
-    required this.oneDay,
-    required this.twoDay,
-    required this.threeDay,
-    required this.fourDay,
+    required this.productEntity,
+    required this.rental,
   }) : super(key: key);
 
   @override
@@ -45,7 +42,7 @@ class ProductContainer extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    name,
+                    productEntity.name,
                     style: AppTextStyle.nunitoW700S12,
                   ),
                   GestureDetector(
@@ -53,14 +50,14 @@ class ProductContainer extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: ((_) => const EquipmentScreen()),
+                          builder: ((_) => EquipmentScreen(
+                                productEntity: productEntity,
+                                rental: rental,
+                              )),
                         ),
                       );
                     },
-                    child: const Icon(
-                      Icons.arrow_forward,
-                      color: Colors.blue,
-                    ),
+                    child: Assets.icons.icArrowRight.svg(color: Colors.blue),
                   ),
                 ],
               ),
@@ -78,24 +75,24 @@ class ProductContainer extends StatelessWidget {
                               .copyWith(color: Colors.grey.shade500),
                         ),
                         Text(
-                          '$oneDay ₽',
+                          '${productEntity.prices.first.price} ₽',
                           style: AppTextStyle.nunitoW600S12,
                         ),
                         SizedBox(height: 6.h),
-                        if (threeDay != null)
+                        if (productEntity.prices.length >= 3)
                           Text(
                             '3 день',
                             style: AppTextStyle.nunitoW600S12
                                 .copyWith(color: Colors.grey.shade500),
                           ),
-                        if (threeDay != null)
+                        if (productEntity.prices.length >= 3)
                           Text(
-                            '$threeDay ₽',
+                            '${productEntity.prices[2].price} ₽',
                             style: AppTextStyle.nunitoW600S12,
                           )
                       ],
                     ),
-                    if (twoDay != null)
+                    if (productEntity.prices.length >= 2)
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -105,21 +102,21 @@ class ProductContainer extends StatelessWidget {
                                 .copyWith(color: Colors.grey.shade500),
                           ),
                           Text(
-                            '$twoDay ₽',
+                            '${productEntity.prices[1].price} ₽',
                             style: AppTextStyle.nunitoW600S12,
                           ),
                           SizedBox(
                             height: 6.h,
                           ),
-                          if (fourDay != null)
+                          if (productEntity.prices.length >= 4)
                             Text(
                               '4 день',
                               style: AppTextStyle.nunitoW600S12
                                   .copyWith(color: Colors.grey.shade500),
                             ),
-                          if (fourDay != null)
+                          if (productEntity.prices.length >= 4)
                             Text(
-                              '$fourDay ₽',
+                              '${productEntity.prices[3].price} ₽',
                               style: AppTextStyle.nunitoW600S12,
                             )
                         ],

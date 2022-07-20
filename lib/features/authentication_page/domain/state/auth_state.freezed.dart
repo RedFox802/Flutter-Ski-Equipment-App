@@ -160,7 +160,9 @@ class _$_AuthState implements _AuthState {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AuthStateToJson(this);
+    return _$$_AuthStateToJson(
+      this,
+    );
   }
 }
 
@@ -174,11 +176,11 @@ abstract class _AuthState implements AuthState {
       _$_AuthState.fromJson;
 
   @override
-  String get verificationId => throw _privateConstructorUsedError;
+  String get verificationId;
   @override
-  bool get error => throw _privateConstructorUsedError;
+  bool get error;
   @override
-  bool get auth => throw _privateConstructorUsedError;
+  bool get auth;
   @override
   @JsonKey(ignore: true)
   _$$_AuthStateCopyWith<_$_AuthState> get copyWith =>

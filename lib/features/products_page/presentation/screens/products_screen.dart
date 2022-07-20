@@ -1,3 +1,4 @@
+import 'package:equipment/features/catalog_page/domain/entity/rental/rental_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -5,7 +6,14 @@ import '../../../../components/app_text_styles.dart';
 import '../components/products_part.dart';
 
 class ProductsScreen extends StatefulWidget {
-  const ProductsScreen({Key? key}) : super(key: key);
+  final RentalEntity rentalEntity;
+  final List<String> types;
+
+  const ProductsScreen({
+    Key? key,
+    required this.rentalEntity,
+    required this.types,
+  }) : super(key: key);
 
   @override
   State<ProductsScreen> createState() => _ProductsScreenState();
@@ -15,7 +23,8 @@ class _ProductsScreenState extends State<ProductsScreen>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    TabController tabController = TabController(length: 5, vsync: this);
+    TabController tabController =
+        TabController(length: widget.types.length + 1, vsync: this);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -33,7 +42,7 @@ class _ProductsScreenState extends State<ProductsScreen>
                   Icons.arrow_back_ios_new,
                   color: Colors.black,
                 ),
-                onTap: (){
+                onTap: () {
                   Navigator.maybePop(context);
                 },
               ),
@@ -46,8 +55,9 @@ class _ProductsScreenState extends State<ProductsScreen>
                   ),
                   SizedBox(width: 8.w),
                   Text(
-                    '9',
-                    style: AppTextStyle.nunitoW700S18.copyWith(color: Colors.grey.shade500),
+                    "${widget.rentalEntity.products.length}",
+                    style: AppTextStyle.nunitoW700S18
+                        .copyWith(color: Colors.grey.shade500),
                   ),
                 ],
               ),
@@ -63,25 +73,31 @@ class _ProductsScreenState extends State<ProductsScreen>
           labelColor: Colors.blue,
           indicatorColor: Colors.blue,
           indicatorWeight: 3,
-          indicator: BoxDecoration(borderRadius: BorderRadius.circular(20.r),color: Colors.blue),
-          indicatorPadding: EdgeInsets.only(top: 18.h,left: 10.w,right: 10.w),
-          tabs: const <Widget>[
-            Text('Все',),
-            Text('Лыжи'),
-            Text('Сноуборд'),
-            Text('Шлем'),
-            Text('Перчатки'),
+          indicator: BoxDecoration(
+              borderRadius: BorderRadius.circular(20.r), color: Colors.blue),
+          indicatorPadding: EdgeInsets.only(top: 18.h, left: 10.w, right: 10.w),
+          tabs: <Widget>[
+            const Text(
+              'Все',
+            ),
+            for (int i = 0; i < widget.types.length; i++) Text(widget.types[i]),
           ],
         ),
       ),
       body: TabBarView(
         controller: tabController,
-        children: const <Widget>[
-          ProductsPart(),
-          ProductsPart(),
-          ProductsPart(),
-          ProductsPart(),
-          ProductsPart(),
+        children: <Widget>[
+          ProductsPart(
+            rentalEntity: widget.rentalEntity,
+            products: widget.rentalEntity.products,
+          ),
+          for (int i = 0; i < widget.types.length; i++)
+            ProductsPart(
+              rentalEntity: widget.rentalEntity,
+              products: widget.rentalEntity.products
+                  .where((element) => element.type == widget.types[i])
+                  .toList(),
+            ),
         ],
       ),
     );

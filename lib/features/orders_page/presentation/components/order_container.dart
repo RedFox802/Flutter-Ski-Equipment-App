@@ -1,16 +1,22 @@
 import 'package:equipment/components/app_text_styles.dart';
+import 'package:equipment/features/booking_page/domain/entity/order_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:avatar_view/avatar_view.dart';
 
 class OrderContainer extends StatelessWidget {
-  const OrderContainer({Key? key}) : super(key: key);
+  final OrderEntity orderEntity;
+
+  const OrderContainer({
+    Key? key,
+    required this.orderEntity,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-      margin: EdgeInsets.symmetric(vertical: 4.h,horizontal: 10.w),
+      margin: EdgeInsets.symmetric(vertical: 4.h, horizontal: 10.w),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20.r),
@@ -30,11 +36,11 @@ class OrderContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Горные лыжи',
+                orderEntity.equipmentName,
                 style: AppTextStyle.nunitoW600S16,
               ),
               Text(
-                'Самовывоз',
+                orderEntity.isDelivery ? 'Доставка' : 'Самовывоз',
                 style: AppTextStyle.nunitoW600S12
                     .copyWith(color: Colors.grey.shade500),
               ),
@@ -45,7 +51,7 @@ class OrderContainer extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('30.05 - 1.05',
+                Text(orderEntity.dates,
                     style: AppTextStyle.nunitoW600S12
                         .copyWith(color: Colors.grey.shade500)),
                 Text(
@@ -57,7 +63,7 @@ class OrderContainer extends StatelessWidget {
             ),
           ),
           Text(
-            'Сочи, Красная поляна, 4',
+            orderEntity.address,
             style: AppTextStyle.nunitoW600S12,
           ),
           Padding(
@@ -71,7 +77,7 @@ class OrderContainer extends StatelessWidget {
                 ),
                 SizedBox(width: 10.w),
                 Text(
-                  'Ski & Winter',
+                  orderEntity.rentalName,
                   style: AppTextStyle.nunitoW600S14,
                 ),
               ],
@@ -83,12 +89,14 @@ class OrderContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '2 дня',
+                  orderEntity.period,
                   style: AppTextStyle.nunitoW600S14,
                 ),
                 Text(
-                  '13 000 ₽',
-                  style: AppTextStyle.nunitoW600S16.copyWith(color: Colors.blue.shade400,),
+                  '${orderEntity.price} ₽',
+                  style: AppTextStyle.nunitoW600S16.copyWith(
+                    color: Colors.blue.shade400,
+                  ),
                 ),
               ],
             ),

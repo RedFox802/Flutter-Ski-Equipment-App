@@ -4,11 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../components/rating_container.dart';
 import '../../../../gen/assets.gen.dart';
+import '../../../catalog_page/domain/entity/rental/rental_entity.dart';
 import '../../../products_page/presentation/screens/products_screen.dart';
 import '../components/product_container.dart';
 
 class RentalScreen extends StatelessWidget {
-  const RentalScreen({Key? key}) : super(key: key);
+  final RentalEntity rentalEntity;
+
+  const RentalScreen({Key? key, required this.rentalEntity}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +50,10 @@ class RentalScreen extends StatelessWidget {
                           },
                         ),
                         GestureDetector(
-                          child: Icon(
-                            Icons.heart_broken_rounded,
+                          child: Assets.images.imHeart.image(
+                            width: 28.w,
+                            height: 28.w,
                             color: Colors.white,
-                            size: 30.r,
                           ),
                           onTap: () {
                             Navigator.maybePop(context);
@@ -72,11 +75,11 @@ class RentalScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Ski & Winter',
+                      rentalEntity.name,
                       style: AppTextStyle.nunitoW700S18,
                     ),
-                    const RatingContainer(
-                      rating: 4.7,
+                    RatingContainer(
+                      rating: rentalEntity.rating,
                     ),
                   ],
                 ),
@@ -84,14 +87,14 @@ class RentalScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 10.h),
                   child: Row(
                     children: [
-                      Icon(
-                        Icons.phone,
+                      Assets.images.imPhone.image(
+                        height: 20.w,
+                        width: 20.w,
                         color: Colors.blue,
-                        size: 26.r,
                       ),
                       SizedBox(width: 20.w),
                       Text(
-                        '+ 7 885 485 76 43',
+                        rentalEntity.phone,
                         style: AppTextStyle.nunitoW600S14,
                       ),
                     ],
@@ -99,14 +102,14 @@ class RentalScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(
-                      Icons.place_outlined,
+                    Assets.icons.icLocation.svg(
+                      height: 20.w,
+                      width: 20.w,
                       color: Colors.blue,
-                      size: 26.r,
                     ),
                     SizedBox(width: 20.w),
                     Text(
-                      'Сочи, Красная поляна, 2',
+                      rentalEntity.address,
                       style: AppTextStyle.nunitoW600S14,
                     ),
                   ],
@@ -115,14 +118,14 @@ class RentalScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 10.h),
                   child: Row(
                     children: [
-                      Icon(
-                        Icons.help_outline_rounded,
+                      Assets.icons.icCalendar.svg(
+                        width: 20.w,
+                        height: 20.w,
                         color: Colors.blue,
-                        size: 26.r,
                       ),
                       SizedBox(width: 20.w),
                       Text(
-                        'C 10-19 ч.',
+                        rentalEntity.hours,
                         style: AppTextStyle.nunitoW600S14,
                       ),
                     ],
@@ -152,10 +155,17 @@ class RentalScreen extends StatelessWidget {
                             style: AppTextStyle.nunitoW600S14
                                 .copyWith(color: Colors.blue)),
                         onTap: () {
+                          Set<String> types = {};
+                          types.addAll(rentalEntity.products
+                              .map((element) => element.type));
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: ((_) => const ProductsScreen()),
+                              builder: ((_) => ProductsScreen(
+                                    types: types.toList(),
+                                    rentalEntity: rentalEntity,
+                                  )),
                             ),
                           );
                         },
@@ -165,20 +175,14 @@ class RentalScreen extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     ProductContainer(
-                      name: 'Горные лыжи',
-                      oneDay: 4000,
-                      twoDay: 5900,
-                      threeDay: 6400,
-                      fourDay: 12000,
+                      productEntity: rentalEntity.products.first,
+                      rental: rentalEntity,
                     ),
                     ProductContainer(
-                      name: 'Сноуборд',
-                      oneDay: 5000,
-                      twoDay: 8700,
-                      threeDay: 9560,
-                      fourDay: 11340,
+                      productEntity: rentalEntity.products.last,
+                      rental: rentalEntity,
                     ),
                   ],
                 ),

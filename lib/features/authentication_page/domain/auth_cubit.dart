@@ -2,8 +2,11 @@ import 'package:equipment/features/authentication_page/domain/state/auth_state.d
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../data/user_id_storage.dart';
+
 class AuthCubit extends Cubit<AuthState> {
   final FirebaseAuth _phoneAuth = FirebaseAuth.instance;
+  final UserIdStorage _userIdStorage = UserIdStorage();
 
   AuthCubit()
       : super(
@@ -17,6 +20,7 @@ class AuthCubit extends Cubit<AuthState> {
         verificationCompleted: (PhoneAuthCredential credential) async {
           await _phoneAuth.signInWithCredential(credential).then((value) {
             if (value.user != null) {
+              _userIdStorage.saveUserId(value.user!.uid);
               emit(state.copyWith(auth: true));
             }
           });
@@ -43,6 +47,7 @@ class AuthCubit extends Cubit<AuthState> {
 
       await _phoneAuth.signInWithCredential(credential).then((value) {
         if (value.user != null) {
+         _userIdStorage.saveUserId(value.user!.uid);
           emit(state.copyWith(auth: true));
         } else {
           emit(state.copyWith(error: true));

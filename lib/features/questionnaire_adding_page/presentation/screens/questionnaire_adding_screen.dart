@@ -60,7 +60,7 @@ class _QuestionnaireAddingScreenState extends State<QuestionnaireAddingScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.h),
               child: AppTextField(
-                icon: Icons.person_sharp,
+                icon: Icons.person_outline_outlined,
                 controller: nameController,
                 text: 'Имя',
                 hint: 'Введите ваше имя',

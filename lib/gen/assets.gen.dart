@@ -14,12 +14,47 @@ import 'package:flutter/services.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/ic_arrow_right.svg
+  SvgGenImage get icArrowRight =>
+      const SvgGenImage('assets/icons/ic_arrow_right.svg');
+
+  /// File path: assets/icons/ic_basket.svg
+  SvgGenImage get icBasket => const SvgGenImage('assets/icons/ic_basket.svg');
+
+  /// File path: assets/icons/ic_calendar.svg
+  SvgGenImage get icCalendar =>
+      const SvgGenImage('assets/icons/ic_calendar.svg');
+
+  /// File path: assets/icons/ic_clock.svg
+  SvgGenImage get icClock => const SvgGenImage('assets/icons/ic_clock.svg');
+
+  /// File path: assets/icons/ic_cross.svg
+  SvgGenImage get icCross => const SvgGenImage('assets/icons/ic_cross.svg');
+
+  /// File path: assets/icons/ic_document.svg
+  SvgGenImage get icDocument =>
+      const SvgGenImage('assets/icons/ic_document.svg');
+
   /// File path: assets/icons/ic_general.webp
   AssetGenImage get icGeneral =>
       const AssetGenImage('assets/icons/ic_general.webp');
 
+  /// File path: assets/icons/ic_general_home.svg
+  SvgGenImage get icGeneralHome =>
+      const SvgGenImage('assets/icons/ic_general_home.svg');
+
+  /// File path: assets/icons/ic_location.svg
+  SvgGenImage get icLocation =>
+      const SvgGenImage('assets/icons/ic_location.svg');
+
   /// File path: assets/icons/ic_ok.svg
   SvgGenImage get icOk => const SvgGenImage('assets/icons/ic_ok.svg');
+
+  /// File path: assets/icons/ic_profile.svg
+  SvgGenImage get icProfile => const SvgGenImage('assets/icons/ic_profile.svg');
+
+  /// File path: assets/icons/ic_ques_ok.svg
+  SvgGenImage get icQuesOk => const SvgGenImage('assets/icons/ic_ques_ok.svg');
 
   /// File path: assets/icons/icon_sett.svg
   SvgGenImage get iconSett => const SvgGenImage('assets/icons/icon_sett.svg');
@@ -31,8 +66,19 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/im_heart.png
+  AssetGenImage get imHeart =>
+      const AssetGenImage('assets/images/im_heart.png');
+
+  /// File path: assets/images/im_phone.png
+  AssetGenImage get imPhone =>
+      const AssetGenImage('assets/images/im_phone.png');
+
   /// File path: assets/images/im_ski.png
   AssetGenImage get imSki => const AssetGenImage('assets/images/im_ski.png');
+
+  /// File path: assets/images/im_star.png
+  AssetGenImage get imStar => const AssetGenImage('assets/images/im_star.png');
 
   /// File path: assets/images/mountains.jpg
   AssetGenImage get mountains =>

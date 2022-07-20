@@ -28,7 +28,7 @@ class RatingContainer extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: 4.w),
             child: Text(
-              '$rating',
+              rating.toStringAsFixed(1),
               style: AppTextStyle.nunitoW600S12
                   .copyWith(color: Colors.white),
             ),

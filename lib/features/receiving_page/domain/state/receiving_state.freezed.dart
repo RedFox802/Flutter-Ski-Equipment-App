@@ -124,7 +124,7 @@ abstract class _ReceivingState implements ReceivingState {
   const factory _ReceivingState({final bool isDelivery}) = _$_ReceivingState;
 
   @override
-  bool get isDelivery => throw _privateConstructorUsedError;
+  bool get isDelivery;
   @override
   @JsonKey(ignore: true)
   _$$_ReceivingStateCopyWith<_$_ReceivingState> get copyWith =>

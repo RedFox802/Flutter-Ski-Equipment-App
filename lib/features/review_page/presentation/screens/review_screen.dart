@@ -18,12 +18,12 @@ class ReviewScreen extends StatefulWidget {
 
 class _ReviewScreenState extends State<ReviewScreen> {
   double value = 0;
+
   @override
   Widget build(BuildContext context) {
-    var disableStarIcon =
-        Assets.icons.iconStar.svg(color: Colors.grey.shade500);
-    var enableStarIcon = Assets.icons.iconStar.svg(color: Colors.yellowAccent);
-    
+    var disableStarIcon = Assets.icons.iconStar.svg(color: Colors.grey.shade500);
+    var enableStarIcon = Assets.images.imStar.image();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -34,9 +34,9 @@ class _ReviewScreenState extends State<ReviewScreen> {
             children: [
               SizedBox(height: 10.h),
               Text(
-                  'Оставьте отзыв',
-                  style: AppTextStyle.nunitoW700S18,
-                ),
+                'Оставьте отзыв',
+                style: AppTextStyle.nunitoW700S18,
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20.h),
                 child: ClipRRect(

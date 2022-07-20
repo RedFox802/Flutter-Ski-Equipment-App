@@ -123,7 +123,7 @@ abstract class _BookingState implements BookingState {
   const factory _BookingState({final int currentIndex}) = _$_BookingState;
 
   @override
-  int get currentIndex => throw _privateConstructorUsedError;
+  int get currentIndex;
   @override
   @JsonKey(ignore: true)
   _$$_BookingStateCopyWith<_$_BookingState> get copyWith =>
