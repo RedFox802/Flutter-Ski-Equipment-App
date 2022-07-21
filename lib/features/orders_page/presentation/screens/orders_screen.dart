@@ -15,7 +15,7 @@ class OrdersScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocProvider(
-        create: (BuildContext context) => OrdersCubit(),
+        create: (BuildContext context) => OrdersCubit()..getOrders(),
         child: BlocBuilder<OrdersCubit, OrdersState>(
           builder: (BuildContext context, state) {
             return SafeArea(

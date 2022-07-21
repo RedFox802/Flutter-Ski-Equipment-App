@@ -14,7 +14,7 @@ _$_OrderEntity _$$_OrderEntityFromJson(Map<String, dynamic> json) =>
       dates: json['dates'] as String? ?? '',
       isDelivery: json['isDelivery'] as bool? ?? true,
       address: json['address'] as String? ?? '',
-      period: json['period'] as String? ?? '',
+      period: json['period'] as int? ?? 0,
       price: json['price'] as int? ?? 0,
     );
 

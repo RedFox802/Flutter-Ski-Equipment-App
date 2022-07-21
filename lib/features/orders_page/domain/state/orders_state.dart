@@ -1,5 +1,6 @@
-import 'package:equipment/features/booking_page/domain/entity/order_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../receiving_page/domain/entity/order_entity.dart';
 
 part 'orders_state.freezed.dart';
 

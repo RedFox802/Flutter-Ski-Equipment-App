@@ -18,9 +18,9 @@ class AuthCubit extends Cubit<AuthState> {
       await _phoneAuth.verifyPhoneNumber(
         phoneNumber: phone,
         verificationCompleted: (PhoneAuthCredential credential) async {
-          await _phoneAuth.signInWithCredential(credential).then((value) {
+          await _phoneAuth.signInWithCredential(credential).then((value) async {
             if (value.user != null) {
-              _userIdStorage.saveUserId(value.user!.uid);
+              await _userIdStorage.saveUserId(value.user!.uid);
               emit(state.copyWith(auth: true));
             }
           });
@@ -45,9 +45,9 @@ class AuthCubit extends Cubit<AuthState> {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: state.verificationId, smsCode: pin);
 
-      await _phoneAuth.signInWithCredential(credential).then((value) {
+      await _phoneAuth.signInWithCredential(credential).then((value) async {
         if (value.user != null) {
-         _userIdStorage.saveUserId(value.user!.uid);
+          await _userIdStorage.saveUserId(value.user!.uid);
           emit(state.copyWith(auth: true));
         } else {
           emit(state.copyWith(error: true));

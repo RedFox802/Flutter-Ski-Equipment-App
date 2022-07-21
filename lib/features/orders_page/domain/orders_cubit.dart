@@ -1,7 +1,7 @@
-import 'package:equipment/features/booking_page/domain/entity/order_entity.dart';
 import 'package:equipment/features/orders_page/domain/state/orders_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../receiving_page/domain/entity/order_entity.dart';
 import '../data/orders_firebase_repository.dart';
 
 class OrdersCubit extends Cubit<OrdersState> {

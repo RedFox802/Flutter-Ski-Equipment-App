@@ -25,7 +25,7 @@ class QuestionnaireScreen extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: ((_) => const QuestionnaireAddingScreen()),
+                builder: ((_) => const QuestionnaireAddingScreen(isUpdate: false,)),
               ),
             );
           },

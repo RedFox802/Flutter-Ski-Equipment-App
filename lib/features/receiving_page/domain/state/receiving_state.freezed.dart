@@ -17,6 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ReceivingState {
   bool get isDelivery => throw _privateConstructorUsedError;
+  bool get loading => throw _privateConstructorUsedError;
+  bool get error => throw _privateConstructorUsedError;
+  bool get orderCreated => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ReceivingStateCopyWith<ReceivingState> get copyWith =>
@@ -28,7 +31,7 @@ abstract class $ReceivingStateCopyWith<$Res> {
   factory $ReceivingStateCopyWith(
           ReceivingState value, $Res Function(ReceivingState) then) =
       _$ReceivingStateCopyWithImpl<$Res>;
-  $Res call({bool isDelivery});
+  $Res call({bool isDelivery, bool loading, bool error, bool orderCreated});
 }
 
 /// @nodoc
@@ -43,11 +46,26 @@ class _$ReceivingStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isDelivery = freezed,
+    Object? loading = freezed,
+    Object? error = freezed,
+    Object? orderCreated = freezed,
   }) {
     return _then(_value.copyWith(
       isDelivery: isDelivery == freezed
           ? _value.isDelivery
           : isDelivery // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loading: loading == freezed
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as bool,
+      orderCreated: orderCreated == freezed
+          ? _value.orderCreated
+          : orderCreated // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -60,7 +78,7 @@ abstract class _$$_ReceivingStateCopyWith<$Res>
           _$_ReceivingState value, $Res Function(_$_ReceivingState) then) =
       __$$_ReceivingStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isDelivery});
+  $Res call({bool isDelivery, bool loading, bool error, bool orderCreated});
 }
 
 /// @nodoc
@@ -77,11 +95,26 @@ class __$$_ReceivingStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isDelivery = freezed,
+    Object? loading = freezed,
+    Object? error = freezed,
+    Object? orderCreated = freezed,
   }) {
     return _then(_$_ReceivingState(
       isDelivery: isDelivery == freezed
           ? _value.isDelivery
           : isDelivery // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loading: loading == freezed
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as bool,
+      orderCreated: orderCreated == freezed
+          ? _value.orderCreated
+          : orderCreated // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -90,15 +123,28 @@ class __$$_ReceivingStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ReceivingState implements _ReceivingState {
-  const _$_ReceivingState({this.isDelivery = true});
+  const _$_ReceivingState(
+      {this.isDelivery = true,
+      this.loading = false,
+      this.error = false,
+      this.orderCreated = false});
 
   @override
   @JsonKey()
   final bool isDelivery;
+  @override
+  @JsonKey()
+  final bool loading;
+  @override
+  @JsonKey()
+  final bool error;
+  @override
+  @JsonKey()
+  final bool orderCreated;
 
   @override
   String toString() {
-    return 'ReceivingState(isDelivery: $isDelivery)';
+    return 'ReceivingState(isDelivery: $isDelivery, loading: $loading, error: $error, orderCreated: $orderCreated)';
   }
 
   @override
@@ -107,12 +153,20 @@ class _$_ReceivingState implements _ReceivingState {
         (other.runtimeType == runtimeType &&
             other is _$_ReceivingState &&
             const DeepCollectionEquality()
-                .equals(other.isDelivery, isDelivery));
+                .equals(other.isDelivery, isDelivery) &&
+            const DeepCollectionEquality().equals(other.loading, loading) &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.orderCreated, orderCreated));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isDelivery));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isDelivery),
+      const DeepCollectionEquality().hash(loading),
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(orderCreated));
 
   @JsonKey(ignore: true)
   @override
@@ -121,10 +175,20 @@ class _$_ReceivingState implements _ReceivingState {
 }
 
 abstract class _ReceivingState implements ReceivingState {
-  const factory _ReceivingState({final bool isDelivery}) = _$_ReceivingState;
+  const factory _ReceivingState(
+      {final bool isDelivery,
+      final bool loading,
+      final bool error,
+      final bool orderCreated}) = _$_ReceivingState;
 
   @override
   bool get isDelivery;
+  @override
+  bool get loading;
+  @override
+  bool get error;
+  @override
+  bool get orderCreated;
   @override
   @JsonKey(ignore: true)
   _$$_ReceivingStateCopyWith<_$_ReceivingState> get copyWith =>

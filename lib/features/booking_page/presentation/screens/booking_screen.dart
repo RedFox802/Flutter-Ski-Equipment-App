@@ -102,7 +102,7 @@ class _BookingScreenState extends State<BookingScreen> {
                                     context,
                                     MaterialPageRoute(
                                       builder: ((_) =>
-                                          const QuestionnaireAddingScreen()),
+                                          const QuestionnaireAddingScreen(isUpdate: false,)),
                                     ),
                                   );
                                 },

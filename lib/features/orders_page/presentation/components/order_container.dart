@@ -1,8 +1,9 @@
 import 'package:equipment/components/app_text_styles.dart';
-import 'package:equipment/features/booking_page/domain/entity/order_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:avatar_view/avatar_view.dart';
+
+import '../../../receiving_page/domain/entity/order_entity.dart';
 
 class OrderContainer extends StatelessWidget {
   final OrderEntity orderEntity;
@@ -89,7 +90,7 @@ class OrderContainer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  orderEntity.period,
+                  '${orderEntity.period} день',
                   style: AppTextStyle.nunitoW600S14,
                 ),
                 Text(

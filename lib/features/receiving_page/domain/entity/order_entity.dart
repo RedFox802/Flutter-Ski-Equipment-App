@@ -12,7 +12,7 @@ class OrderEntity with _$OrderEntity{
     @Default('') final String dates,
     @Default(true) final bool isDelivery,
     @Default('') final String address,
-    @Default('') final String period,
+    @Default(0) final int period,
     @Default(0) final int price,
   }) = _OrderEntity;
 

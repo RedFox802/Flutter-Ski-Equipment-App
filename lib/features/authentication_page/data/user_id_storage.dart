@@ -1,9 +1,9 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class UserIdStorage{
-
+class UserIdStorage {
   final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
-  final AndroidOptions androidOptions = const AndroidOptions(resetOnError: true);
+  final AndroidOptions androidOptions =
+      const AndroidOptions(resetOnError: true);
 
   Future<void> saveUserId(String id) async {
     try {
@@ -12,12 +12,13 @@ class UserIdStorage{
     } catch (_) {}
   }
 
-  Future<String?> loadUserId() async {
+  Future<String> loadUserId() async {
     try {
       return await _secureStorage.read(
-          key: 'userId', aOptions: androidOptions);
+              key: 'userId', aOptions: androidOptions) ??
+          '';
     } catch (_) {
-      return Future(() => null);
+      return '';
     }
   }
 
@@ -25,8 +26,6 @@ class UserIdStorage{
     try {
       return await _secureStorage.delete(
           key: 'userId', aOptions: androidOptions);
-    } catch (_) {
-      return Future(() => null);
-    }
+    } catch (_) {}
   }
 }

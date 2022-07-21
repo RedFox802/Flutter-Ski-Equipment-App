@@ -5,11 +5,13 @@ import 'package:equipment/components/default_app_bar.dart';
 import 'package:equipment/features/catalog_page/domain/entity/price/price_entity.dart';
 import 'package:equipment/features/catalog_page/domain/entity/products/product_entity.dart';
 import 'package:equipment/features/catalog_page/domain/entity/rental/rental_entity.dart';
+import 'package:equipment/features/receiving_page/domain/entity/order_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../components/app_text_field.dart';
+import '../../authentication_page/data/user_id_storage.dart';
 import '../../boking_result_page/presentation/screens/booking_result_screen.dart';
 import '../domain/receiving_cubit.dart';
 import '../domain/state/receiving_state.dart';
@@ -31,20 +33,32 @@ class ReceivingScreen extends StatefulWidget {
 }
 
 class _ReceivingScreenState extends State<ReceivingScreen> {
+  final UserIdStorage _userIdStorage = UserIdStorage();
   bool isDelivery = true;
 
   @override
   Widget build(BuildContext cont3ext) {
-    final TextEditingController controller = TextEditingController();
-    final TextEditingController controller2 =
+    final TextEditingController dateController = TextEditingController();
+    final TextEditingController addressController = TextEditingController();
+    final TextEditingController ourAddressController =
         TextEditingController(text: widget.rental.address);
-
+    late OrderEntity currentOrder;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const DefaultAppBar(),
       body: BlocProvider(
         create: (BuildContext context) => ReceivingCubit(),
-        child: BlocBuilder<ReceivingCubit, ReceivingState>(
+        child: BlocConsumer<ReceivingCubit, ReceivingState>(
+          listener: (BuildContext context, ReceivingState state) {
+            if (state.orderCreated) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((_) => BookingResultScreen(orderEntity: currentOrder,)),
+                ),
+              );
+            }
+          },
           builder: (BuildContext context, ReceivingState state) {
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -79,7 +93,7 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                   AppTextField(
                     text: 'Дата получения',
                     hint: 'Введите дату доставки',
-                    controller: controller,
+                    controller: dateController,
                     icon: Icons.calendar_month,
                   ),
                   isDelivery
@@ -89,7 +103,7 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                             text: 'Адрес получения',
                             hint: 'Введите адрес доставки',
                             buttonText: 'Карта',
-                            controller: controller,
+                            controller: addressController,
                             icon: Icons.place_outlined,
                             onTap: () {},
                           ),
@@ -99,7 +113,7 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                           child: AppTextField(
                             text: 'Наш адрес',
                             buttonText: 'Построить маршрут',
-                            controller: controller2,
+                            controller: ourAddressController,
                             readOnly: true,
                             onTap: () {},
                           ),
@@ -107,19 +121,35 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                   AppTextField(
                     text: 'Описание',
                     hint: 'Введите описание',
-                    controller: controller,
+                    controller: TextEditingController(),
                   ),
                   SizedBox(height: 120.h),
                   AppBlueButton(
                     text: 'Забронировать',
-                    onPressed: () {
-                      //Тут будет создаваться заказ и передаваться дальше
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: ((_) => const BookingResultScreen()),
-                        ),
+                    onPressed: () async {
+                      List<String> dateString = dateController.text.split('.');
+                      DateTime deliveryDate = DateTime(DateTime.now().year,
+                          int.parse(dateString[1]), int.parse(dateString[0]));
+                      DateTime endDate = deliveryDate
+                          .add(Duration(days: widget.priceEntity.period));
+
+                        currentOrder = OrderEntity(
+                        id: await _userIdStorage.loadUserId(),
+                        equipmentName: widget.productEntity.name,
+                        rentalName: widget.rental.name,
+                        dates:
+                            '${deliveryDate.day}.${deliveryDate.month}-${endDate.day}.${endDate.month}',
+                        isDelivery: isDelivery,
+                        address: isDelivery
+                            ? addressController.text
+                            : ourAddressController.text,
+                        period: widget.priceEntity.period,
+                        price: widget.priceEntity.price,
                       );
+
+                      await context
+                          .read<ReceivingCubit>()
+                          .addOrder(currentOrder);
                     },
                   ),
                   SizedBox(height: 10.h),

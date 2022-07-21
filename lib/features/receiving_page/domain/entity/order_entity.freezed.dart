@@ -26,7 +26,7 @@ mixin _$OrderEntity {
   String get dates => throw _privateConstructorUsedError;
   bool get isDelivery => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
-  String get period => throw _privateConstructorUsedError;
+  int get period => throw _privateConstructorUsedError;
   int get price => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $OrderEntityCopyWith<$Res> {
       String dates,
       bool isDelivery,
       String address,
-      String period,
+      int period,
       int price});
 }
 
@@ -98,7 +98,7 @@ class _$OrderEntityCopyWithImpl<$Res> implements $OrderEntityCopyWith<$Res> {
       period: period == freezed
           ? _value.period
           : period // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ abstract class _$$_OrderEntityCopyWith<$Res>
       String dates,
       bool isDelivery,
       String address,
-      String period,
+      int period,
       int price});
 }
 
@@ -174,7 +174,7 @@ class __$$_OrderEntityCopyWithImpl<$Res> extends _$OrderEntityCopyWithImpl<$Res>
       period: period == freezed
           ? _value.period
           : period // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -193,7 +193,7 @@ class _$_OrderEntity implements _OrderEntity {
       this.dates = '',
       this.isDelivery = true,
       this.address = '',
-      this.period = '',
+      this.period = 0,
       this.price = 0});
 
   factory _$_OrderEntity.fromJson(Map<String, dynamic> json) =>
@@ -219,7 +219,7 @@ class _$_OrderEntity implements _OrderEntity {
   final String address;
   @override
   @JsonKey()
-  final String period;
+  final int period;
   @override
   @JsonKey()
   final int price;
@@ -281,7 +281,7 @@ abstract class _OrderEntity implements OrderEntity {
       final String dates,
       final bool isDelivery,
       final String address,
-      final String period,
+      final int period,
       final int price}) = _$_OrderEntity;
 
   factory _OrderEntity.fromJson(Map<String, dynamic> json) =
@@ -300,7 +300,7 @@ abstract class _OrderEntity implements OrderEntity {
   @override
   String get address;
   @override
-  String get period;
+  int get period;
   @override
   int get price;
   @override

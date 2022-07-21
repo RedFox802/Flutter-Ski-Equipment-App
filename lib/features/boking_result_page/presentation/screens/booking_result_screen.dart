@@ -5,12 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../gen/assets.gen.dart';
-import '../../../booking_page/domain/entity/order_entity.dart';
+import '../../../receiving_page/domain/entity/order_entity.dart';
 import '../../../review_page/presentation/screens/review_screen.dart';
 
 class BookingResultScreen extends StatelessWidget {
+  final OrderEntity orderEntity;
+
   const BookingResultScreen({
     Key? key,
+    required this.orderEntity,
   }) : super(key: key);
 
   @override
@@ -72,8 +75,8 @@ class BookingResultScreen extends StatelessWidget {
               style: AppTextStyle.nunitoW600S14,
             ),
             SizedBox(height: 4.h),
-            const OrderContainer(
-              orderEntity: OrderEntity(),
+            OrderContainer(
+              orderEntity: orderEntity,
             )
           ],
         ),

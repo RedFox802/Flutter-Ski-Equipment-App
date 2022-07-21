@@ -7,9 +7,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../components/app_buttons_row.dart';
 import '../../../../components/app_text_field.dart';
 import '../../../home_page/presentation/screens/home_screen.dart';
+import '../../../profile_page/domain/entity/questionnaire/questionnaire_entity.dart';
 
 class QuestionnaireAddingScreen extends StatefulWidget {
-  const QuestionnaireAddingScreen({Key? key}) : super(key: key);
+  final bool isUpdate;
+  final QuestionnaireEntity? entity;
+
+  const QuestionnaireAddingScreen({
+    Key? key,
+    required this.isUpdate,
+    this.entity,
+  }) : super(key: key);
 
   @override
   State<QuestionnaireAddingScreen> createState() =>
@@ -17,15 +25,22 @@ class QuestionnaireAddingScreen extends StatefulWidget {
 }
 
 class _QuestionnaireAddingScreenState extends State<QuestionnaireAddingScreen> {
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController heightController = TextEditingController();
-  final TextEditingController weightController = TextEditingController();
-  final TextEditingController shoesController = TextEditingController();
-
   bool isNew = false;
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController nameController = widget.entity == null
+        ? TextEditingController()
+        : TextEditingController(text: widget.entity!.name);
+    final TextEditingController heightController = widget.entity == null
+        ? TextEditingController()
+        : TextEditingController(text: widget.entity!.height);
+    final TextEditingController weightController = widget.entity == null
+        ? TextEditingController()
+        : TextEditingController(text: widget.entity!.weight);
+    final TextEditingController shoesController = widget.entity == null
+        ? TextEditingController()
+        : TextEditingController(text: widget.entity!.shoeSize);
     return Scaffold(
       appBar: const DefaultAppBar(),
       backgroundColor: Colors.white,

@@ -2,6 +2,7 @@ import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../profile_page/domain/entity/questionnaire/questionnaire_entity.dart';
 import '../../../questionnaire_adding_page/presentation/screens/questionnaire_adding_screen.dart';
 
 class QuestionnaireContainer extends StatelessWidget {
@@ -47,7 +48,7 @@ class QuestionnaireContainer extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: ((_) => const QuestionnaireAddingScreen()),
+                            builder: ((_) => const QuestionnaireAddingScreen(isUpdate: true, entity: QuestionnaireEntity(),)),
                           ),
                         );
                       },
