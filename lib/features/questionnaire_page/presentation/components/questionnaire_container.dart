@@ -2,18 +2,27 @@ import 'package:equipment/components/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../gen/assets.gen.dart';
 import '../../../profile_page/domain/entity/questionnaire/questionnaire_entity.dart';
 import '../../../questionnaire_adding_page/presentation/screens/questionnaire_adding_screen.dart';
 
 class QuestionnaireContainer extends StatelessWidget {
-  const QuestionnaireContainer({Key? key}) : super(key: key);
+  final QuestionnaireEntity questionnaireEntity;
+
+  const QuestionnaireContainer({
+    Key? key,
+    required this.questionnaireEntity,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 20.w),
       child: SizedBox(
-        width: MediaQuery.of(context).size.width - 40.w,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width - 40.w,
         height: 100.h,
         child: DecoratedBox(
           decoration: BoxDecoration(
@@ -36,7 +45,8 @@ class QuestionnaireContainer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Иван, опытный',
+                      '${questionnaireEntity.name}, ${questionnaireEntity
+                          .isExperienced ? 'Опытный' : 'Новичок'}',
                       style: AppTextStyle.nunitoW600S16,
                     ),
                     IconButton(
@@ -48,7 +58,11 @@ class QuestionnaireContainer extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: ((_) => const QuestionnaireAddingScreen(isUpdate: true, entity: QuestionnaireEntity(),)),
+                            builder: ((_) =>
+                                QuestionnaireAddingScreen(
+                                  isUpdate: true,
+                                  entity: questionnaireEntity,
+                                )),
                           ),
                         );
                       },
@@ -67,41 +81,18 @@ class QuestionnaireContainer extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(
-                            Icons.arrow_upward,
-                          ),
+                          Assets.icons.icHeight.svg(color: Colors.grey.shade700,
+                            height: 32.w,
+                            width: 32.w,),
                           Text(
-                            '180',
+                            questionnaireEntity.height,
                             style: AppTextStyle.nunitoW600S14,
                           ),
-                          SizedBox(width: 6.w),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 6.w),
-                      child: Container(
-                        width: 74.w,
-                        height: 36.h,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade50,
-                          borderRadius: BorderRadius.circular(16.r),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(
-                              Icons.person_sharp,
-                            ),
-                            Text(
-                              '80',
-                              style: AppTextStyle.nunitoW600S14,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
                     Container(
+                      margin:EdgeInsets.symmetric(horizontal: 6.w),
                       width: 74.w,
                       height: 36.h,
                       decoration: BoxDecoration(
@@ -111,14 +102,35 @@ class QuestionnaireContainer extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(
-                            Icons.snowshoeing,
-                          ),
+                          Assets.icons.icScales.svg(color: Colors.grey
+                              .shade700),
+                          SizedBox(width: 6.w,),
                           Text(
-                            '43',
+                            questionnaireEntity.weight,
                             style: AppTextStyle.nunitoW600S14,
                           ),
-                          SizedBox(width: 6.w),
+                        ],
+                      ),
+
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 6.w),
+                      width: 74.w,
+                      height: 36.h,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade50,
+                        borderRadius: BorderRadius.circular(16.r),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Assets.icons.icShoe.svg(color: Colors.grey.shade700,
+                              height: 30.w,
+                              width: 30.w),
+                          Text(
+                            questionnaireEntity.shoeSize,
+                            style: AppTextStyle.nunitoW600S14,
+                          ),
                         ],
                       ),
                     )

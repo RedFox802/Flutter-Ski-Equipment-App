@@ -54,7 +54,9 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: ((_) => BookingResultScreen(orderEntity: currentOrder,)),
+                  builder: ((_) => BookingResultScreen(
+                        orderEntity: currentOrder,
+                      )),
                 ),
               );
             }
@@ -94,7 +96,10 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                     text: 'Дата получения',
                     hint: 'Введите дату доставки',
                     controller: dateController,
-                    icon: Icons.calendar_month,
+                    icon: Icon(
+                      Icons.calendar_month,
+                      size: 30.w,
+                    ),
                   ),
                   isDelivery
                       ? Padding(
@@ -104,7 +109,10 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                             hint: 'Введите адрес доставки',
                             buttonText: 'Карта',
                             controller: addressController,
-                            icon: Icons.place_outlined,
+                            icon: Icon(
+                              Icons.place_outlined,
+                              size: 30.w,
+                            ),
                             onTap: () {},
                           ),
                         )
@@ -133,7 +141,7 @@ class _ReceivingScreenState extends State<ReceivingScreen> {
                       DateTime endDate = deliveryDate
                           .add(Duration(days: widget.priceEntity.period));
 
-                        currentOrder = OrderEntity(
+                      currentOrder = OrderEntity(
                         id: await _userIdStorage.loadUserId(),
                         equipmentName: widget.productEntity.name,
                         rentalName: widget.rental.name,

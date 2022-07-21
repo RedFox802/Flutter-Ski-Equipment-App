@@ -20,6 +20,7 @@ QuestionnaireEntity _$QuestionnaireEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$QuestionnaireEntity {
+  String get userId => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get weight => throw _privateConstructorUsedError;
@@ -39,7 +40,8 @@ abstract class $QuestionnaireEntityCopyWith<$Res> {
           QuestionnaireEntity value, $Res Function(QuestionnaireEntity) then) =
       _$QuestionnaireEntityCopyWithImpl<$Res>;
   $Res call(
-      {String id,
+      {String userId,
+      String id,
       String name,
       String weight,
       String height,
@@ -58,6 +60,7 @@ class _$QuestionnaireEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? userId = freezed,
     Object? id = freezed,
     Object? name = freezed,
     Object? weight = freezed,
@@ -66,6 +69,10 @@ class _$QuestionnaireEntityCopyWithImpl<$Res>
     Object? isExperienced = freezed,
   }) {
     return _then(_value.copyWith(
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -102,7 +109,8 @@ abstract class _$$_QuestionnaireEntityCopyWith<$Res>
       __$$_QuestionnaireEntityCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
+      {String userId,
+      String id,
       String name,
       String weight,
       String height,
@@ -123,6 +131,7 @@ class __$$_QuestionnaireEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? userId = freezed,
     Object? id = freezed,
     Object? name = freezed,
     Object? weight = freezed,
@@ -131,6 +140,10 @@ class __$$_QuestionnaireEntityCopyWithImpl<$Res>
     Object? isExperienced = freezed,
   }) {
     return _then(_$_QuestionnaireEntity(
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -163,7 +176,8 @@ class __$$_QuestionnaireEntityCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_QuestionnaireEntity implements _QuestionnaireEntity {
   const _$_QuestionnaireEntity(
-      {this.id = '',
+      {this.userId = '',
+      this.id = '',
       this.name = '',
       this.weight = '',
       this.height = '',
@@ -173,6 +187,9 @@ class _$_QuestionnaireEntity implements _QuestionnaireEntity {
   factory _$_QuestionnaireEntity.fromJson(Map<String, dynamic> json) =>
       _$$_QuestionnaireEntityFromJson(json);
 
+  @override
+  @JsonKey()
+  final String userId;
   @override
   @JsonKey()
   final String id;
@@ -194,7 +211,7 @@ class _$_QuestionnaireEntity implements _QuestionnaireEntity {
 
   @override
   String toString() {
-    return 'QuestionnaireEntity(id: $id, name: $name, weight: $weight, height: $height, shoeSize: $shoeSize, isExperienced: $isExperienced)';
+    return 'QuestionnaireEntity(userId: $userId, id: $id, name: $name, weight: $weight, height: $height, shoeSize: $shoeSize, isExperienced: $isExperienced)';
   }
 
   @override
@@ -202,6 +219,7 @@ class _$_QuestionnaireEntity implements _QuestionnaireEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_QuestionnaireEntity &&
+            const DeepCollectionEquality().equals(other.userId, userId) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.weight, weight) &&
@@ -215,6 +233,7 @@ class _$_QuestionnaireEntity implements _QuestionnaireEntity {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(userId),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(weight),
@@ -238,7 +257,8 @@ class _$_QuestionnaireEntity implements _QuestionnaireEntity {
 
 abstract class _QuestionnaireEntity implements QuestionnaireEntity {
   const factory _QuestionnaireEntity(
-      {final String id,
+      {final String userId,
+      final String id,
       final String name,
       final String weight,
       final String height,
@@ -248,6 +268,8 @@ abstract class _QuestionnaireEntity implements QuestionnaireEntity {
   factory _QuestionnaireEntity.fromJson(Map<String, dynamic> json) =
       _$_QuestionnaireEntity.fromJson;
 
+  @override
+  String get userId;
   @override
   String get id;
   @override

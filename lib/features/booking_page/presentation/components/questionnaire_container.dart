@@ -1,5 +1,6 @@
 import 'package:equipment/components/app_text_styles.dart';
 import 'package:equipment/features/booking_page/domain/state/booking_state.dart';
+import 'package:equipment/features/profile_page/domain/entity/questionnaire/questionnaire_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,11 +10,13 @@ import '../../domain/booking_cubit.dart';
 class QuestionnaireContainer2 extends StatefulWidget {
   final bool isEnabled;
   final int index;
+  final QuestionnaireEntity questionnaireEntity;
 
   const QuestionnaireContainer2({
     Key? key,
     this.isEnabled = false,
     required this.index,
+    required this.questionnaireEntity,
   }) : super(key: key);
 
   @override
@@ -34,7 +37,6 @@ class _QuestionnaireContainer2State extends State<QuestionnaireContainer2> {
               },
               child: Container(
                 width: MediaQuery.of(context).size.width / 2 - 16.w,
-                height: 70.h,
                 decoration: BoxDecoration(
                   border: widget.isEnabled
                       ? Border.all(color: Colors.blue, width: 2.w)
@@ -51,9 +53,9 @@ class _QuestionnaireContainer2State extends State<QuestionnaireContainer2> {
                   ],
                 ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Icon(
                         Icons.circle_outlined,
@@ -66,12 +68,16 @@ class _QuestionnaireContainer2State extends State<QuestionnaireContainer2> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Ольга, новичек',
+                            '${widget.questionnaireEntity.name},',
                             style: AppTextStyle.nunitoW600S12,
                           ),
-                          SizedBox(width: 6.w),
                           Text(
-                            '180 / 76 / 42',
+                            widget.questionnaireEntity.isExperienced ? 'Опытный' : 'Новичок',
+                            style: AppTextStyle.nunitoW600S12,
+                          ),
+                          SizedBox(height: 6.h),
+                          Text(
+                            '${widget.questionnaireEntity.height} / ${widget.questionnaireEntity.weight} / ${widget.questionnaireEntity.shoeSize}',
                             style: AppTextStyle.nunitoW600S12,
                           ),
                         ],

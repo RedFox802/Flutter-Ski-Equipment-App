@@ -6,6 +6,7 @@ part 'questionnaire_entity.g.dart';
 @freezed
 class QuestionnaireEntity with _$QuestionnaireEntity{
   const factory QuestionnaireEntity({
+    @Default('') final String userId,
     @Default('') final String id,
     @Default('') final String name,
     @Default('') final String weight,

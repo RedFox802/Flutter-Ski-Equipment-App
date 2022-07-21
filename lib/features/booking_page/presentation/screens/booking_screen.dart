@@ -36,123 +36,124 @@ class _BookingScreenState extends State<BookingScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const DefaultAppBar(),
-      body: BlocProvider(
-        create: (BuildContext context) => BookingCubit(),
-        child: BlocBuilder<BookingCubit, BookingState>(
-          builder: (BuildContext context, state) {
-            return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Бронирование',
-                          style: AppTextStyle.nunitoW700S18,
+      body: BlocBuilder<BookingCubit, BookingState>(
+        builder: (BuildContext context, state) {
+          return Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Бронирование',
+                        style: AppTextStyle.nunitoW700S18,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 16.h, bottom: 6.h),
+                        child: Text(
+                          'Товар',
+                          style: AppTextStyle.nunitoW600S14,
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 16.h, bottom: 6.h),
-                          child: Text(
-                            'Товар',
-                            style: AppTextStyle.nunitoW600S14,
-                          ),
+                      ),
+                      GestureDetector(
+                        child: Text(
+                          widget.productEntity.name,
+                          style: AppTextStyle.nunitoW600S16
+                              .copyWith(color: Colors.blue.shade400),
                         ),
-                        GestureDetector(
-                          child: Text(
-                            widget.productEntity.name,
-                            style: AppTextStyle.nunitoW600S16
-                                .copyWith(color: Colors.blue.shade400),
-                          ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 26.h, bottom: 6.h),
+                        child: Text(
+                          'Количество дней',
+                          style: AppTextStyle.nunitoW600S14,
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 26.h, bottom: 6.h),
-                          child: Text(
-                            'Количество дней',
-                            style: AppTextStyle.nunitoW600S14,
-                          ),
+                      ),
+                      GestureDetector(
+                        child: Text(
+                          '${widget.priceEntity.period} дня',
+                          style: AppTextStyle.nunitoW600S16
+                              .copyWith(color: Colors.blue.shade400),
                         ),
-                        GestureDetector(
-                          child: Text(
-                            '${widget.priceEntity.period} дня',
-                            style: AppTextStyle.nunitoW600S16
-                                .copyWith(color: Colors.blue.shade400),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 26.h, bottom: 6.h),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Выберите анкету',
-                                style: AppTextStyle.nunitoW600S14,
-                              ),
-                              GestureDetector(
-                                child: Text(
-                                  'Добавить',
-                                  style: AppTextStyle.nunitoW600S14
-                                      .copyWith(color: Colors.blue.shade400),
-                                ),
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: ((_) =>
-                                          const QuestionnaireAddingScreen(isUpdate: false,)),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 10.h),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height / 2.2,
-                    child: ListView(
-                      children: [
-                        Wrap(
-                          alignment: WrapAlignment.center,
-                          spacing: 8.w,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 26.h, bottom: 6.h),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            for (int i = 0; i < 10; i++)
-                              QuestionnaireContainer2(
-                                isEnabled:
-                                    state.currentIndex == i ? true : false,
-                                index: i,
+                            Text(
+                              'Выберите анкету',
+                              style: AppTextStyle.nunitoW600S14,
+                            ),
+                            GestureDetector(
+                              child: Text(
+                                'Добавить',
+                                style: AppTextStyle.nunitoW600S14
+                                    .copyWith(color: Colors.blue.shade400),
                               ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: ((_) =>
+                                        const QuestionnaireAddingScreen(
+                                          isUpdate: false,
+                                        )),
+                                  ),
+                                );
+                              },
+                            ),
                           ],
-                        )
-                      ],
-                    ),
-                  ),
-                  AppBlueButton(
-                    text: 'Продолжить',
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: ((_) => ReceivingScreen(
-                                productEntity: widget.productEntity,
-                                rental: widget.rental,
-                                priceEntity: widget.priceEntity,
-                              )),
                         ),
-                      );
-                    },
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            );
-          },
-        ),
+                ),
+                SizedBox(height: 10.h),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 2.2,
+                  child: ListView(
+                    children: [
+                      Wrap(
+                        alignment: state.questionnaires.length > 1
+                            ? WrapAlignment.center
+                            : WrapAlignment.start,
+                        spacing: 8.w,
+                        children: [
+                          for (int i = 0; i < state.questionnaires.length; i++)
+                            QuestionnaireContainer2(
+                              isEnabled: state.currentIndex == i ? true : false,
+                              index: i,
+                              questionnaireEntity: state.questionnaires[i],
+                            ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                AppBlueButton(
+                  text: 'Продолжить',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((_) => ReceivingScreen(
+                              productEntity: widget.productEntity,
+                              rental: widget.rental,
+                              priceEntity: widget.priceEntity,
+                            )),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

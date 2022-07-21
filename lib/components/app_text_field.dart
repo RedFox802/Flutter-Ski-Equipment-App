@@ -8,7 +8,7 @@ class AppTextField extends StatelessWidget {
   final String? hint;
   final String? buttonText;
   final void Function()? onTap;
-  final IconData? icon;
+  final Widget? icon;
   final bool readOnly;
   final TextEditingController controller;
 
@@ -51,23 +51,22 @@ class AppTextField extends StatelessWidget {
           readOnly: readOnly,
           controller: controller,
           decoration: InputDecoration(
-              hintText: hint,
-              hintStyle: AppTextStyle.nunitoW600S14
-                  .copyWith(color: Colors.grey.shade500),
-              filled: true,
-              fillColor: Colors.grey.shade50,
-              border: AppInputBorders.telephoneInputBorder,
-              errorBorder: AppInputBorders.telephoneInputBorder,
-              disabledBorder: AppInputBorders.telephoneInputBorder,
-              enabledBorder: AppInputBorders.telephoneInputBorder,
-              focusedBorder: AppInputBorders.telephoneInputBorder,
-              focusedErrorBorder: AppInputBorders.telephoneInputBorder,
-              suffixIcon: icon != null
-                  ? Icon(
-                      icon,
-                      size: 28.r,
-                    )
-                  : null),
+            hintText: hint,
+            hintStyle: AppTextStyle.nunitoW600S14
+                .copyWith(color: Colors.grey.shade500),
+            filled: true,
+            fillColor: Colors.grey.shade50,
+            border: AppInputBorders.telephoneInputBorder,
+            errorBorder: AppInputBorders.telephoneInputBorder,
+            disabledBorder: AppInputBorders.telephoneInputBorder,
+            enabledBorder: AppInputBorders.telephoneInputBorder,
+            focusedBorder: AppInputBorders.telephoneInputBorder,
+            focusedErrorBorder: AppInputBorders.telephoneInputBorder,
+            suffixIcon: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 6.h),
+              child: icon,
+            ),
+          ),
         )
       ],
     );

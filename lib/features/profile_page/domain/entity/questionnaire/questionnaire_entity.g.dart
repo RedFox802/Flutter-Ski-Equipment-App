@@ -9,6 +9,7 @@ part of 'questionnaire_entity.dart';
 _$_QuestionnaireEntity _$$_QuestionnaireEntityFromJson(
         Map<String, dynamic> json) =>
     _$_QuestionnaireEntity(
+      userId: json['userId'] as String? ?? '',
       id: json['id'] as String? ?? '',
       name: json['name'] as String? ?? '',
       weight: json['weight'] as String? ?? '',
@@ -20,6 +21,7 @@ _$_QuestionnaireEntity _$$_QuestionnaireEntityFromJson(
 Map<String, dynamic> _$$_QuestionnaireEntityToJson(
         _$_QuestionnaireEntity instance) =>
     <String, dynamic>{
+      'userId': instance.userId,
       'id': instance.id,
       'name': instance.name,
       'weight': instance.weight,

@@ -43,6 +43,9 @@ class $AssetsIconsGen {
   SvgGenImage get icGeneralHome =>
       const SvgGenImage('assets/icons/ic_general_home.svg');
 
+  /// File path: assets/icons/ic_height.svg
+  SvgGenImage get icHeight => const SvgGenImage('assets/icons/ic_height.svg');
+
   /// File path: assets/icons/ic_location.svg
   SvgGenImage get icLocation =>
       const SvgGenImage('assets/icons/ic_location.svg');
@@ -55,6 +58,12 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/ic_ques_ok.svg
   SvgGenImage get icQuesOk => const SvgGenImage('assets/icons/ic_ques_ok.svg');
+
+  /// File path: assets/icons/ic_scales.svg
+  SvgGenImage get icScales => const SvgGenImage('assets/icons/ic_scales.svg');
+
+  /// File path: assets/icons/ic_shoe.svg
+  SvgGenImage get icShoe => const SvgGenImage('assets/icons/ic_shoe.svg');
 
   /// File path: assets/icons/icon_sett.svg
   SvgGenImage get iconSett => const SvgGenImage('assets/icons/icon_sett.svg');
