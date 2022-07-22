@@ -5,15 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../gen/assets.gen.dart';
+import '../../../catalog_page/domain/entity/rental/rental_entity.dart';
 import '../../../receiving_page/domain/entity/order_entity.dart';
 import '../../../review_page/presentation/screens/review_screen.dart';
 
 class BookingResultScreen extends StatelessWidget {
   final OrderEntity orderEntity;
+  final RentalEntity rental;
 
   const BookingResultScreen({
     Key? key,
     required this.orderEntity,
+    required this.rental,
   }) : super(key: key);
 
   @override
@@ -31,7 +34,9 @@ class BookingResultScreen extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: ((_) => const ReviewScreen()),
+                builder: ((_) => ReviewScreen(
+                      rental: rental,
+                    )),
               ),
             );
           },

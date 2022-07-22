@@ -132,7 +132,7 @@ class __$$_BookingStateCopyWithImpl<$Res>
 
 class _$_BookingState implements _BookingState {
   const _$_BookingState(
-      {this.currentIndex = 0,
+      {this.currentIndex = -1,
       this.loading = false,
       this.error = false,
       final List<QuestionnaireEntity> questionnaires = const []})

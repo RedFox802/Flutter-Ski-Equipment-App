@@ -6,10 +6,10 @@ import 'package:equipment/features/login_page/domain/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../../components/app_blue_button.dart';
+import '../../../../components/app_error.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../domain/login_state.dart';
 
@@ -31,14 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
         child: BlocConsumer<LoginCubit, LoginState>(
           listener: (BuildContext context, LoginState state) {
             if (state.error) {
-              Fluttertoast.showToast(
-                msg: "Ошибка автодополнения!",
-                toastLength: Toast.LENGTH_SHORT,
-                gravity: ToastGravity.CENTER,
-                timeInSecForIosWeb: 1,
-                backgroundColor: Colors.red,
-                textColor: Colors.white,
-                fontSize: 16.sp,
+              AppError.showError(
+                'Ошибка автодополнения!',
+                context,
               );
             }
           },
@@ -62,7 +57,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20.w, vertical: 20.h),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [

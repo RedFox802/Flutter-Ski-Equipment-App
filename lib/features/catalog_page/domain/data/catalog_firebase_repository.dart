@@ -12,4 +12,16 @@ class CatalogFirebaseRepository {
         .map((json) => RentalEntity.fromJson(json))
         .toList();
   }
+
+  Future<void> reviewRental(double value, String name) async {
+    final rental =
+        await _fireStore.collection('rentals').where('name', isEqualTo: name).get();
+
+    final documentId = rental.docs.first.id.toString();
+
+    await _fireStore
+        .collection('questionnaire')
+        .doc(documentId)
+        .update({'rating': value});
+  }
 }

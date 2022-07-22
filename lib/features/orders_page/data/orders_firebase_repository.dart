@@ -27,4 +27,5 @@ class OrdersFirebaseRepository {
       orderEntity.toJson(),
     );
   }
+
 }

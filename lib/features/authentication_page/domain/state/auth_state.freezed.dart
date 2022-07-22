@@ -20,8 +20,10 @@ AuthState _$AuthStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AuthState {
+  String? get phone => throw _privateConstructorUsedError;
   String get verificationId => throw _privateConstructorUsedError;
   bool get error => throw _privateConstructorUsedError;
+  bool get loading => throw _privateConstructorUsedError;
   bool get auth => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +36,12 @@ mixin _$AuthState {
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
-  $Res call({String verificationId, bool error, bool auth});
+  $Res call(
+      {String? phone,
+      String verificationId,
+      bool error,
+      bool loading,
+      bool auth});
 }
 
 /// @nodoc
@@ -47,11 +54,17 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? phone = freezed,
     Object? verificationId = freezed,
     Object? error = freezed,
+    Object? loading = freezed,
     Object? auth = freezed,
   }) {
     return _then(_value.copyWith(
+      phone: phone == freezed
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
       verificationId: verificationId == freezed
           ? _value.verificationId
           : verificationId // ignore: cast_nullable_to_non_nullable
@@ -59,6 +72,10 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loading: loading == freezed
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
               as bool,
       auth: auth == freezed
           ? _value.auth
@@ -74,7 +91,12 @@ abstract class _$$_AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
           _$_AuthState value, $Res Function(_$_AuthState) then) =
       __$$_AuthStateCopyWithImpl<$Res>;
   @override
-  $Res call({String verificationId, bool error, bool auth});
+  $Res call(
+      {String? phone,
+      String verificationId,
+      bool error,
+      bool loading,
+      bool auth});
 }
 
 /// @nodoc
@@ -89,11 +111,17 @@ class __$$_AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? phone = freezed,
     Object? verificationId = freezed,
     Object? error = freezed,
+    Object? loading = freezed,
     Object? auth = freezed,
   }) {
     return _then(_$_AuthState(
+      phone: phone == freezed
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
       verificationId: verificationId == freezed
           ? _value.verificationId
           : verificationId // ignore: cast_nullable_to_non_nullable
@@ -101,6 +129,10 @@ class __$$_AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loading: loading == freezed
+          ? _value.loading
+          : loading // ignore: cast_nullable_to_non_nullable
               as bool,
       auth: auth == freezed
           ? _value.auth
@@ -114,11 +146,17 @@ class __$$_AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AuthState implements _AuthState {
   const _$_AuthState(
-      {this.verificationId = '', this.error = false, this.auth = false});
+      {this.phone,
+      this.verificationId = '',
+      this.error = false,
+      this.loading = false,
+      this.auth = false});
 
   factory _$_AuthState.fromJson(Map<String, dynamic> json) =>
       _$$_AuthStateFromJson(json);
 
+  @override
+  final String? phone;
   @override
   @JsonKey()
   final String verificationId;
@@ -127,11 +165,14 @@ class _$_AuthState implements _AuthState {
   final bool error;
   @override
   @JsonKey()
+  final bool loading;
+  @override
+  @JsonKey()
   final bool auth;
 
   @override
   String toString() {
-    return 'AuthState(verificationId: $verificationId, error: $error, auth: $auth)';
+    return 'AuthState(phone: $phone, verificationId: $verificationId, error: $error, loading: $loading, auth: $auth)';
   }
 
   @override
@@ -139,9 +180,11 @@ class _$_AuthState implements _AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AuthState &&
+            const DeepCollectionEquality().equals(other.phone, phone) &&
             const DeepCollectionEquality()
                 .equals(other.verificationId, verificationId) &&
             const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality().equals(other.loading, loading) &&
             const DeepCollectionEquality().equals(other.auth, auth));
   }
 
@@ -149,8 +192,10 @@ class _$_AuthState implements _AuthState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(phone),
       const DeepCollectionEquality().hash(verificationId),
       const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(loading),
       const DeepCollectionEquality().hash(auth));
 
   @JsonKey(ignore: true)
@@ -168,17 +213,23 @@ class _$_AuthState implements _AuthState {
 
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
-      {final String verificationId,
+      {final String? phone,
+      final String verificationId,
       final bool error,
+      final bool loading,
       final bool auth}) = _$_AuthState;
 
   factory _AuthState.fromJson(Map<String, dynamic> json) =
       _$_AuthState.fromJson;
 
   @override
+  String? get phone;
+  @override
   String get verificationId;
   @override
   bool get error;
+  @override
+  bool get loading;
   @override
   bool get auth;
   @override

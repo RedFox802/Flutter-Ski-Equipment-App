@@ -11,6 +11,8 @@ class AppTextField extends StatelessWidget {
   final Widget? icon;
   final bool readOnly;
   final TextEditingController controller;
+  final  String? Function(String?)? validator;
+  final  TextInputType? keyboardType;
 
   const AppTextField({
     Key? key,
@@ -20,7 +22,7 @@ class AppTextField extends StatelessWidget {
     required this.controller,
     this.buttonText,
     this.onTap,
-    this.readOnly = false,
+    this.readOnly = false, this.validator, this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -50,6 +52,9 @@ class AppTextField extends StatelessWidget {
         TextFormField(
           readOnly: readOnly,
           controller: controller,
+          validator: validator,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          keyboardType: keyboardType,
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: AppTextStyle.nunitoW600S14

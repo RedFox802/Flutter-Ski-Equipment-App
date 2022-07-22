@@ -21,4 +21,17 @@ class QuestionnaireCubit extends Cubit<QuestionnaireState> {
       emit(state.copyWith(error: true, loading: false));
     }
   }
+
+  Future<void> deleteQuestionnaire(String id) async {
+    try {
+      emit(state.copyWith(loading: true));
+      await _repository.deleteQuestionnaire(id);
+      List<QuestionnaireEntity> entities =
+          state.questionnaires.where((element) => element.id != id).toList();
+      emit(state.copyWith(
+          questionnaires: entities, loading: false, error: false));
+    } catch (e) {
+      emit(state.copyWith(error: true, loading: false));
+    }
+  }
 }

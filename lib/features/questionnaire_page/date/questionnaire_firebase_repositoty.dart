@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../authentication_page/data/user_id_storage.dart';
 import '../../profile_page/domain/entity/questionnaire/questionnaire_entity.dart';
@@ -38,14 +36,12 @@ class QuestionnaireFirebaseRepository {
         .get();
 
     final documentId = questionnaire.docs.first.id.toString();
-    log(documentId);
 
     for(var key in fields.keys){
       await _fireStore.collection('questionnaire').doc(documentId).update(
         {key: fields[key]}
       );
     }
-    log('ok');
   }
 
   Future<void> deleteQuestionnaire(String id) async {
@@ -56,5 +52,18 @@ class QuestionnaireFirebaseRepository {
 
     final documentId = questionnaire.docs.first.id.toString();
     await _fireStore.collection('questionnaire').doc(documentId).delete();
+  }
+
+  Future<void> deleteAll() async {
+    String userId = await _userIdStorage.loadUserId();
+
+    final questionnaire = await _fireStore
+        .collection('questionnaire')
+        .where('userId', isEqualTo: userId)
+        .get();
+
+    for(var doc in questionnaire.docs){
+      await _fireStore.collection('questionnaire').doc(doc.id).delete();
+    }
   }
 }

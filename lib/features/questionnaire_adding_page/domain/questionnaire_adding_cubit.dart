@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:equipment/features/profile_page/domain/entity/questionnaire/questionnaire_entity.dart';
 import 'package:equipment/features/questionnaire_adding_page/domain/state/questionnaire_adding_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,10 +23,8 @@ class QuestionnaireAddingCubit extends Cubit<QuestionnaireAddingState> {
   Future<void> updateQuestionnaire(String id, Map<String,dynamic> fields) async {
     try {
       emit(state.copyWith(loading: true));
-      log('я тут');
       await _repository.updateQuestionnaire(id,fields);
       emit(state.copyWith(ready: true, loading: false, error: false));
-      log('я готов');
     } catch (e) {
       emit(state.copyWith(error: true, loading: false));
     }

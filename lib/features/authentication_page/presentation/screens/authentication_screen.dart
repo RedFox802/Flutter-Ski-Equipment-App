@@ -5,9 +5,9 @@ import 'package:equipment/features/login_page/presentation/screens/login_screen.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import '../../../../components/app_error.dart';
 import '../../../../components/app_text_styles.dart';
 import '../../../../components/default_app_bar.dart';
 
@@ -33,20 +33,12 @@ class AuthenticationScreen extends StatelessWidget {
           );
         }
         if (state.error) {
-          Fluttertoast.showToast(
-              msg: "Ошибка авторизации",
-              toastLength: Toast.LENGTH_SHORT,
-              gravity: ToastGravity.CENTER,
-              timeInSecForIosWeb: 1,
-              backgroundColor: Colors.red,
-              textColor: Colors.white,
-              fontSize: 16.sp);
-
           Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (_) => const LoginScreen()),
             (_) => false,
           );
+          AppError.showError('Ошибка входа в аккаунт!', context);
         }
       },
       builder: (BuildContext context, AuthState state) {
